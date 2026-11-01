@@ -1,0 +1,189 @@
+{
+  "site": {
+    "title": "ICONTEC Construtora | Projetos, orçamentos e execução de obras",
+    "description": "Projetos, orçamentos, execução de obras e consultoria. Da primeira ideia à entrega, com planejamento e acompanhamento.",
+    "themeColor": "#0b2a43",
+    "logo": "favicon.jpg",
+    "logoAlt": "Símbolo da ICONTEC Construtora",
+    "company": "ICONTEC Construtora",
+    "year": "2026",
+    "whatsapp": "5599981665914",
+    "whatsappBase": "https://api.whatsapp.com/send",
+    "instagramUrl": "https://www.instagram.com/icontec_construtora/",
+    "instagramLabel": "Instagram @icontec_construtora"
+  },
+  "navigation": {
+    "ariaLabel": "Navegação principal",
+    "links": [
+      {
+        "label": "Serviços",
+        "href": "#servicos"
+      },
+      {
+        "label": "Como trabalhamos",
+        "href": "#processo"
+      },
+      {
+        "label": "Diferenciais",
+        "href": "#diferenciais"
+      },
+      {
+        "label": "Contato",
+        "href": "#contato"
+      }
+    ],
+    "cta": "Solicitar orçamento",
+    "menuLabel": "Abrir ou fechar menu"
+  },
+  "hero": {
+    "eyebrow": "ENGENHARIA • PLANEJAMENTO • EXECUÇÃO",
+    "titleLines": [
+      "Sua obra.",
+      "Bem planejada.",
+      "Bem executada."
+    ],
+    "highlightLine": 1,
+    "description": "Projetos, orçamentos, execução de obras e consultoria. Acompanhamento em cada etapa para transformar sua ideia em uma construção bem resolvida.",
+    "primaryCta": "Conversar com a ICONTEC",
+    "secondaryCta": "Conhecer os serviços",
+    "drawingLabel": "ESTUDO • PROJETO • CONSTRUÇÃO",
+    "drawingAria": "Ilustração técnica de uma casa em construção",
+    "scrollHint": "ROLE PARA ACOMPANHAR O PROJETO"
+  },
+  "services": {
+    "eyebrow": "O que fazemos",
+    "title": "Tudo o que a sua obra precisa, em um só lugar.",
+    "description": "Soluções para cada etapa da construção, do planejamento inicial ao acompanhamento da execução.",
+    "items": [
+      {
+        "number": "01 / PROJETOS",
+        "title": "Projetos",
+        "description": "Plantas, layouts e desenhos técnicos pensados para o seu terreno, suas necessidades e seu orçamento.",
+        "art": "project"
+      },
+      {
+        "number": "02 / PLANEJAMENTO",
+        "title": "Orçamentos",
+        "description": "Custos organizados por etapa, com informações claras para ajudar você a tomar decisões.",
+        "art": "budget"
+      },
+      {
+        "number": "03 / CONSTRUÇÃO",
+        "title": "Execução de obras",
+        "description": "Acompanhamento da execução, da fundação ao acabamento, com atenção ao planejamento e aos detalhes.",
+        "art": "build"
+      },
+      {
+        "number": "04 / ORIENTAÇÃO",
+        "title": "Consultorias",
+        "description": "Orientação técnica antes de comprar, reformar ou começar a construir.",
+        "art": "consult"
+      }
+    ]
+  },
+  "marquee": [
+    "Projetos",
+    "Orçamentos",
+    "Execução de obras",
+    "Consultorias"
+  ],
+  "differentials": {
+    "eyebrow": "Por que a ICONTEC",
+    "title": "Mais clareza para construir com confiança.",
+    "description": "Uma obra bem planejada começa com decisões claras. Acompanhamos os pontos importantes para reduzir imprevistos e retrabalho.",
+    "items": [
+      {
+        "title": "Planejamento desde o início",
+        "description": "Definimos as necessidades e organizamos as etapas antes de avançar para a execução."
+      },
+      {
+        "title": "Acompanhamento próximo",
+        "description": "Atenção ao andamento dos serviços, aos prazos e à qualidade em cada fase da obra."
+      },
+      {
+        "title": "Orçamento transparente",
+        "description": "Custos apresentados de forma organizada para que você entenda melhor cada etapa."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Como trabalhamos",
+    "title": "Da primeira ideia até a obra concluída.",
+    "description": "Acompanhe as etapas. Conforme você avança pela página, o desenho evolui junto com o processo.",
+    "artTop": "ICONTEC / ETAPAS DA OBRA",
+    "artBottom": "PROJETO EM EVOLUÇÃO",
+    "steps": [
+      {
+        "title": "Consultoria e análise",
+        "description": "Entendemos o que você pretende construir e avaliamos o terreno, as necessidades e as possibilidades.",
+        "deliverables": [
+          "Análise inicial",
+          "Orientação sobre possibilidades",
+          "Alinhamento das necessidades"
+        ]
+      },
+      {
+        "title": "Desenvolvimento do projeto",
+        "description": "Preparamos plantas e desenhos técnicos. As propostas são avaliadas antes de avançar para a próxima etapa.",
+        "deliverables": [
+          "Planta e desenhos técnicos",
+          "Estudo da solução",
+          "Ajustes conforme alinhamento"
+        ]
+      },
+      {
+        "title": "Orçamento e planejamento",
+        "description": "Organizamos os custos previstos, os materiais, a mão de obra e as etapas da execução.",
+        "deliverables": [
+          "Previsão de custos",
+          "Organização por etapas",
+          "Cronograma estimado"
+        ]
+      },
+      {
+        "title": "Execução acompanhada",
+        "description": "Com o planejamento alinhado, a obra avança com acompanhamento e atenção à qualidade dos serviços.",
+        "deliverables": [
+          "Acompanhamento do andamento",
+          "Atenção ao prazo e à qualidade",
+          "Verificação das etapas"
+        ]
+      },
+      {
+        "title": "Finalização e entrega",
+        "description": "Conferimos os serviços concluídos e tratamos os ajustes finais previstos para a entrega.",
+        "deliverables": [
+          "Verificação final",
+          "Ajustes previstos",
+          "Conclusão da obra"
+        ]
+      }
+    ],
+    "counterLabel": "ETAPA",
+    "counterTotal": "05",
+    "drawingCaptions": [
+      "ANÁLISE",
+      "PROJETO",
+      "PLANEJAMENTO",
+      "EXECUÇÃO",
+      "ENTREGA"
+    ]
+  },
+  "contact": {
+    "eyebrow": "Vamos conversar?",
+    "title": "Sua próxima obra começa com uma boa conversa.",
+    "description": "Conte um pouco sobre o que você pretende construir ou reformar. Entre em contato com a ICONTEC para conversar sobre os próximos passos.",
+    "cta": "Pedir orçamento pelo WhatsApp",
+    "whatsappMessage": "Olá! Gostaria de conversar com a ICONTEC sobre um projeto. Podem me orientar sobre os próximos passos?"
+  },
+  "footer": {
+    "copyrightPrefix": "©",
+    "rights": "Todos os direitos reservados.",
+    "instagramLabel": "Instagram @icontec_construtora"
+  },
+  "accessibility": {
+    "backToTop": "Voltar ao topo",
+    "whatsapp": "Conversar com a ICONTEC pelo WhatsApp",
+    "scrollProgress": "Progresso de leitura da página"
+  }
+}
