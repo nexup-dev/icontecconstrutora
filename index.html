@@ -139,22 +139,19 @@
     .load-error code{color:var(--teal)}
     @media(max-width:980px){.navlinks{gap:15px}.navlinks a{font-size:12px}.services{grid-template-columns:repeat(2,minmax(0,1fr))}.differential-grid{gap:45px}.process-sticky{grid-template-columns:.95fr 1.05fr;gap:30px}.process-art{padding:16px}}
     @media(max-width:720px){
-      .wrap{width:calc(100% - 36px)}.topbar{top:8px}nav{width:calc(100% - 18px);min-height:60px;padding:7px 8px 7px 12px;gap:8px;border-radius:16px}
-      .brand{font-size:16px;gap:8px}.brand img{width:35px;height:35px}.navlinks{display:none;position:absolute;top:calc(100% + 9px);left:0;right:0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 18px 35px #0b2a4320;flex-direction:column;align-items:stretch;gap:0}
-      .navlinks.open{display:flex}.navlinks a{padding:12px 8px;font-size:14px}.navlinks a:after{display:none}.menu-toggle{display:grid;place-items:center}
-      nav>.btn{min-height:42px;padding:10px 13px;font-size:11px}
-      .hero{height:160vh;min-height:1000px}.hero-sticky{min-height:100svh;grid-template-columns:1fr;gap:20px;padding:100px 22px 50px;align-content:center}
-      h1{font-size:clamp(45px,12vw,68px)}.lead{font-size:15px;margin:17px 0 22px}.drawing{height:33svh;min-height:230px;padding:13px;border-radius:22px}.drawing-tag{top:12px;left:14px;font-size:8px}.drawing-caption{right:14px;bottom:12px;font-size:8px}
-      .scrollhint{display:none}.section{padding:82px 0}.section-head h2{font-size:clamp(35px,10vw,52px)}.services{gap:10px;margin-top:34px}.service{min-height:260px;padding:20px 16px;border-radius:19px}.service-art{width:58px;height:58px;margin-bottom:23px}.service h3{font-size:21px}
-      .marquee{margin:25px -8px;padding:20px 0}.marquee-track{gap:25px}
-      .differential-grid{grid-template-columns:1fr;gap:34px}.differential h3{font-size:21px}
-      .process{height:auto}.process-sticky{position:relative;min-height:0;grid-template-columns:1fr;gap:25px;padding:82px 18px 85px}
-      .steps{min-height:0;margin-top:26px}.step{position:relative;display:none}.step.active{display:block}.step h3{font-size:34px}.step-dots{margin-top:24px}
-      .process-art{padding:13px}.process-art svg{max-height:310px}
-      .contact{border-radius:26px 26px 0 0}.contact-inner{padding:85px 22px}.contact h2{font-size:clamp(39px,11vw,58px)}
-      footer{padding:24px 20px;align-items:flex-start;flex-direction:column}.floating{right:16px;bottom:16px;width:52px;height:52px}.backtop{right:21px;bottom:80px}
+      html{scroll-padding-top:82px}body{font-size:15px;background-size:32px 32px}.wrap{width:calc(100% - 32px)}.topbar{top:7px}
+      nav{width:calc(100% - 16px);min-height:58px;padding:6px 7px 6px 10px;gap:6px;border-radius:15px}.brand{font-size:14px;gap:6px;letter-spacing:-.35px}.brand img{width:31px;height:31px;border-radius:8px}.brand span{font-size:13px}
+      .navlinks{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;padding:10px;border:1px solid var(--line);border-radius:15px;background:var(--card);box-shadow:0 18px 35px #0b2a4320;flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 9px;font-size:14px}.navlinks a:after{display:none}
+      .menu-toggle{display:grid;place-items:center;flex:none;width:38px;height:38px}nav>.btn{min-height:39px;padding:9px 10px;font-size:10px;white-space:nowrap;gap:5px;box-shadow:none}
+      .hero{height:auto;min-height:100svh}.hero-sticky{position:relative;min-height:100svh;grid-template-columns:1fr;gap:22px;padding:105px 16px 42px;align-content:center}h1{font-size:clamp(42px,11.5vw,66px);line-height:.99}.eyebrow{font-size:9px;letter-spacing:1.5px;margin-bottom:16px}.lead{font-size:14px;line-height:1.65;margin:16px 0 20px}.hero-actions{gap:9px}.hero-actions .btn{flex:1 1 145px;padding:12px 13px;font-size:11px;min-height:45px}
+      .drawing{height:clamp(220px,42svh,330px);min-height:220px;padding:12px;border-radius:20px}.drawing-tag{top:12px;left:14px;font-size:7px;letter-spacing:1.2px}.drawing-caption{right:12px;bottom:12px;font-size:7px;letter-spacing:1px;max-width:65%}.scrollhint{display:none}
+      .section{padding:76px 0}.section-head h2{font-size:clamp(34px,9vw,49px);line-height:1.02}.section-head>p:last-child{font-size:14px;line-height:1.65}.services{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:30px}.service{min-width:0;min-height:235px;padding:17px 14px;border-radius:17px;transform:none!important}.service-art{width:52px;height:52px;margin-bottom:18px}.service h3{font-size:clamp(17px,4.8vw,21px);line-height:1.05;overflow-wrap:anywhere}.service p{font-size:12px;line-height:1.55}.service small{font-size:8px;letter-spacing:1px;margin-bottom:10px}
+      .marquee{margin:22px -8px;padding:18px 0;transform:rotate(-.7deg)}.marquee-track{gap:22px;animation-duration:34s}.marquee-track span{font-size:22px}.differential-grid{grid-template-columns:1fr;gap:28px}.differential-list{gap:19px}.differential{padding-top:17px}.differential h3{font-size:21px}.differential p{font-size:13px;line-height:1.65}
+      .process{height:auto}.process-sticky{position:relative;min-height:0;grid-template-columns:1fr;gap:25px;padding:76px 16px 72px}.process-copy .section-head h2{font-size:clamp(34px,9vw,48px)}.steps{min-height:0;margin-top:26px;display:grid;gap:22px}.step,.step.active{position:relative;inset:auto;display:block;max-width:none;opacity:1;transform:none;pointer-events:auto;padding:0 0 20px;border-bottom:1px solid var(--line)}.step h3{font-size:29px;margin:9px 0}.step p{font-size:13px;line-height:1.65}.deliver-title{margin:14px 0 7px}.deliverables li{font-size:12px}.step-dots{display:none}
+      .process-art{padding:12px;border-radius:18px}.art-top,.art-bottom{font-size:7px;letter-spacing:1px}.process-art svg{max-height:260px}.contact{border-radius:23px 23px 0 0;margin-top:12px}.contact-inner{padding:76px 18px}.contact h2{font-size:clamp(37px,10vw,56px);line-height:1}.contact p{font-size:14px;line-height:1.65;margin:17px auto 25px}.contact .btn{font-size:11px;padding:13px 16px}
+      footer{padding:23px 17px;align-items:flex-start;flex-direction:column;gap:13px;font-size:12px}.floating{right:14px;bottom:14px;width:50px;height:50px}.backtop{right:19px;bottom:76px;width:39px;height:39px}.reveal{opacity:1;transform:none}
     }
-    @media(max-width:390px){.brand span{font-size:14px}.navlinks a{font-size:13px}.nav>.btn{padding-inline:10px}.services{grid-template-columns:1fr}.service{min-height:220px}}
+    @media(max-width:390px){nav{gap:5px}.brand{gap:5px}.brand img{width:28px;height:28px}.brand span{font-size:12px}nav>.btn{font-size:9px;padding:8px 8px;min-height:36px}.menu-toggle{width:35px;height:35px}.services{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.service{min-height:230px;padding:15px 11px}.service h3{font-size:17px}.service p{font-size:11px}.hero-sticky{padding-inline:13px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}h1 em{transform:none}}
   </style>
 </head>
@@ -277,42 +274,31 @@
       }
       function update(){
         raf=0;
-        const hp=sectionProgress(hero),amount=smooth(hp/.8);
-        houseLines.forEach((line,i)=>{
-          const p=smooth((amount-i*.055)/.42);
-          line.style.strokeDashoffset=String(1-p);
-        });
-        houseFill.style.opacity=String(smooth((hp-.55)/.25)*.85);
-        const pp=sectionProgress(process),scaled=pp*5,active=Math.min(4,Math.floor(scaled));
-        stepCards.forEach((el,i)=>el.classList.toggle("active",i===active));
-        dots.forEach((el,i)=>el.classList.toggle("active",i===active));
-        $("#artCounter").textContent=`${String(active+1).padStart(2,"0")} / ${D.process.counterTotal}`;
-        $("#artCaption").textContent=D.process.drawingCaptions[active];
-        stageLines.forEach(line=>{
-          const group=Number(line.closest("g").id.replace("stage",""));
-          const p=smooth(clamp(scaled-group+.2));
-          line.style.strokeDashoffset=String(1-p);
-          line.style.opacity=String(p);
-        });
-        stageFills.forEach(fill=>{
-          const group=Number(fill.closest("g").id.replace("stage",""));
-          fill.style.opacity=String(smooth(clamp(scaled-group-.4)));
-        });
-        $("#progress span").style.width=`${(scrollY/(document.documentElement.scrollHeight-innerHeight||1))*100}%`;
-        $("#progress").setAttribute("aria-valuenow",String(Math.round(scrollY/(document.documentElement.scrollHeight-innerHeight||1)*100)));
-        $("#nav").classList.toggle("scrolled",scrollY>30);
-        $("#backTop").classList.toggle("show",scrollY>650);
+        const mobile=matchMedia("(max-width:720px)").matches;
+        if(reduceMotion || mobile){
+          houseLines.forEach(line=>line.style.strokeDashoffset="0");houseFill.style.opacity=".85";
+          stageLines.forEach(line=>{line.style.strokeDashoffset="0";line.style.opacity="1"});
+          stageFills.forEach(fill=>fill.style.opacity="1");
+        }else{
+          const hp=sectionProgress(hero),amount=smooth(hp/.8);
+          houseLines.forEach((line,i)=>{const p=smooth((amount-i*.055)/.42);line.style.strokeDashoffset=String(1-p)});
+          houseFill.style.opacity=String(smooth((hp-.55)/.25)*.85);
+          const pp=sectionProgress(process),scaled=pp*5,active=Math.min(4,Math.floor(scaled));
+          stepCards.forEach((el,i)=>el.classList.toggle("active",i===active));dots.forEach((el,i)=>el.classList.toggle("active",i===active));
+          $("#artCounter").textContent=`${String(active+1).padStart(2,"0")} / ${D.process.counterTotal}`;$("#artCaption").textContent=D.process.drawingCaptions[active];
+          stageLines.forEach(line=>{const group=Number(line.closest("g").id.replace("stage",""));const p=smooth(clamp(scaled-group+.2));line.style.strokeDashoffset=String(1-p);line.style.opacity=String(p)});
+          stageFills.forEach(fill=>{const group=Number(fill.closest("g").id.replace("stage",""));fill.style.opacity=String(smooth(clamp(scaled-group-.4)))});
+        }
+        const denominator=Math.max(1,document.documentElement.scrollHeight-innerHeight),progress=clamp(scrollY/denominator)*100;
+        $("#progress span").style.width=`${progress}%`;$("#progress").setAttribute("aria-valuenow",String(Math.round(progress)));
+        $("#nav").classList.toggle("scrolled",scrollY>30);$("#backTop").classList.toggle("show",scrollY>650);
         const activeSection=["servicos","processo","diferenciais","contato"].map(id=>document.getElementById(id)).filter(Boolean).filter(el=>el.getBoundingClientRect().top<innerHeight*.4).at(-1);
         $$("#navLinks a").forEach(a=>a.classList.toggle("active",!!activeSection&&a.getAttribute("href")==="#"+activeSection.id));
       }
       function request(){if(!raf)raf=requestAnimationFrame(update)}
-      if(reduceMotion){
-        houseLines.forEach(x=>x.style.strokeDashoffset="0");houseFill.style.opacity=".85";
-        stageLines.forEach(x=>{x.style.strokeDashoffset="0";x.style.opacity="1"});
-        stageFills.forEach(x=>x.style.opacity="1");
-      }else{
-        addEventListener("scroll",request,{passive:true});addEventListener("resize",request);request();
-      }
+      addEventListener("scroll",request,{passive:true});
+      addEventListener("resize",request,{passive:true});
+      request();
       $("#backTop").addEventListener("click",()=>scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"}));
 
       if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!reduceMotion){
