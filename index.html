@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/png" href="favicon.jpg">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f7f8f6">
   <meta name="description" content="ICONTEC Construtora: projetos, orçamentos, execução de obras e consultoria.">
   <title>ICONTEC Construtora | Do projeto à obra entregue</title>
@@ -347,11 +346,64 @@ h1{animation:none}
 .service{will-change:auto}
 .why,.planner,.faq{content-visibility:auto;contain-intrinsic-size:auto 760px}
 #fail{position:fixed;inset:auto 16px 16px;z-index:200;padding:16px 20px;border-radius:14px;background:#102d3b;color:#fff;font-size:14px}
-@media(max-width:680px){body:after,.chip{display:none}.process-detail{display:block!important;position:relative;opacity:1;transform:none;margin-bottom:28px}.process-progress,.process-counter{display:none}.stage-line{opacity:1!important;stroke-dashoffset:0!important}}
+@media(max-width:680px){body:after,.chip{display:none}.process-detail{display:block!important;position:relative;opacity:1;transform:none;margin-bottom:28px}.process-progress,.process-counter{display:none}}
 @media(prefers-reduced-motion:reduce){.w i{transform:none}}
 img.brand-mark{display:block;border-radius:50%;object-fit:cover;background:#fff}
 .foot-brand{display:inline-flex;align-items:center;gap:12px}
 .foot-brand img{border-radius:50%;object-fit:cover;background:#fff}
+
+/* ===== v4: celular + feedback de scroll ===== */
+html{-webkit-text-size-adjust:100%}
+main{overflow-x:clip}
+.reveal{transition-delay:var(--d,0s)}
+.button{will-change:auto}
+.button:active{transform:scale(.97)}
+.house path,.house line,.house rect{filter:none}
+.house{filter:drop-shadow(0 0 6px rgba(111,240,220,.5))}
+.process-art svg g[stroke="#178d82"]{filter:none}
+.process-art svg{filter:drop-shadow(0 0 5px rgba(111,240,220,.4))}
+.why,.planner{content-visibility:visible}
+@media(max-width:680px){
+  html{scroll-padding-top:84px}
+  .topbar{inset:calc(8px + env(safe-area-inset-top)) 0 auto}
+  nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.97);box-shadow:0 8px 26px -14px rgba(16,45,59,.4)}
+  .hero{height:auto;min-height:0}
+  .hero:before,.hero-visual:before{animation:none}
+  .hero-grid{position:relative;min-height:0;padding-top:104px;padding-bottom:44px;gap:30px}
+  h1{font-size:clamp(42px,12.6vw,60px);line-height:1}
+  .hero-copy{font-size:16px;margin:18px 0 24px}
+  .badge{font-size:12px;margin-bottom:20px}
+  .actions{flex-direction:column}
+  .actions .button{width:100%;padding:16px 22px;font-size:15px}
+  .hero-visual{min-height:0;aspect-ratio:1/.86;border-radius:26px;transform:none!important}
+  .house{width:80%;filter:none}
+  .process-art svg{filter:none;max-height:none}
+  .mq{margin:-14px -12px 18px;padding:14px 0}
+  .mq div{font-size:20px;gap:30px}
+  .section{padding:64px 0}
+  .section-head h2{font-size:clamp(30px,8.6vw,40px);letter-spacing:-.03em}
+  .section-head>p:last-child{font-size:15px}
+  .services{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:30px -18px 0;padding:4px 18px 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .services::-webkit-scrollbar{display:none}
+  .service{flex:0 0 80%;scroll-snap-align:center;min-height:0;padding:24px 20px 28px}
+  .services .reveal{opacity:1;transform:none}
+  .why-grid{gap:30px}
+  .why-item h3{font-size:20px}
+  .planner-panel select{font-size:16px}
+  .process-sticky{padding:64px 0}
+  .process-steps{display:grid;gap:14px}
+  .process-detail{margin:0!important;padding:20px 18px;border:1px solid var(--line);border-radius:18px;background:#fff;max-width:none}
+  .process-detail h3{font-size:24px;margin:8px 0}
+  .process-detail p{font-size:14px;max-width:none}
+  .process-art{padding:14px;border-radius:22px}
+  .contact{padding:72px 0}
+  .contact h2{font-size:clamp(32px,9vw,44px)}
+  .contact .button{width:100%}
+  .floating-contact{right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}
+  .back-top{right:19px;bottom:calc(76px + env(safe-area-inset-bottom))}
+  .faq-question{padding:18px 0}
+  footer{padding-bottom:calc(25px + env(safe-area-inset-bottom))}
+}
   </style>
 </head>
 <body>
@@ -480,15 +532,17 @@ function render(D){
 function init(D){
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealItems = document.querySelectorAll(".reveal");
+    document.querySelectorAll(".services > .reveal,.why-list > .reveal").forEach((el,i)=>el.style.setProperty("--d",(i%4)*.08+"s"));
     if ("IntersectionObserver" in window && !reduceMotion) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          el.classList.add("visible");
+          observer.unobserve(el);
+          setTimeout(() => { el.classList.remove("reveal","visible"); el.style.removeProperty("--d"); }, 1100);
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
       revealItems.forEach((item) => observer.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("visible"));
@@ -508,6 +562,11 @@ function init(D){
     const drawingCaption = document.querySelector("#drawingCaption");
     const captions = D.process.steps.map(x=>x.caption);
     const statuses = D.process.steps.map(x=>x.status);
+    const heroVisual = document.querySelector(".hero-visual");
+    const processArt = document.querySelector(".process-art");
+    const processDrawing = document.querySelector("#processDrawing");
+    const mobileMQ = window.matchMedia("(max-width: 680px)");
+    let lastHp = -1, lastP = -1, lastMob = null;
     let ticking = false;
 
     function progress(section) {
@@ -517,33 +576,43 @@ function init(D){
     }
     function updateScenes() {
       ticking = false;
-      const hp = progress(hero);
-      const reveal = smooth(hp / .78);
-      heroLines.forEach((line,i) => {
-        const part = smooth((reveal - i*.055) / .43);
-        line.style.strokeDashoffset = String(1-part);
-      });
-      heroFill.style.opacity = String(smooth((hp-.55)/.25)*.85);
-      document.querySelector(".hero-visual").style.transform =
-        `translateY(${(hp-.5)*-22}px) scale(${1+hp*.025})`;
-
-      if (window.matchMedia("(max-width: 680px)").matches) return;
-      const p = progress(processSection);
-      const scaled = p*5;
-      const active = Math.min(4,Math.floor(scaled));
-      details.forEach((item,i) => item.classList.toggle("active",i===active));
-      processCount.textContent = String(active+1).padStart(2,"0");
-      artStatus.textContent = statuses[active];
-      drawingCaption.textContent = captions[active];
-      progressFill.style.width = `${p*100}%`;
-      processLines.forEach(line => {
-        const stage = Number(line.dataset.stage);
-        const amount = smooth(clamp(scaled-stage+.18));
-        line.style.strokeDashoffset = String(1-amount);
-        line.style.opacity = String(amount);
-      });
-      document.querySelector("#processDrawing").style.transform =
-        `translateY(${((scaled-active)-.5)*-7}px)`;
+      const mob = mobileMQ.matches;
+      let hp;
+      if (mob) {
+        const r = heroVisual.getBoundingClientRect();
+        hp = clamp((window.innerHeight * .95 - r.top) / (window.innerHeight * .62));
+      } else hp = progress(hero);
+      if (Math.abs(hp - lastHp) > .0008 || lastMob !== mob) {
+        lastHp = hp;
+        const reveal = smooth(hp / .78);
+        heroLines.forEach((line,i) => { line.style.strokeDashoffset = String(1 - smooth((reveal - i*.055) / .43)); });
+        heroFill.style.opacity = String(smooth((hp-.55)/.25)*.85);
+        heroVisual.style.transform = mob ? "" : `translate3d(0,${(hp-.5)*-22}px,0) scale(${1+hp*.025})`;
+      }
+      let p;
+      if (mob) {
+        const r = processArt.getBoundingClientRect();
+        p = clamp((window.innerHeight * .92 - r.top) / (window.innerHeight * .78));
+      } else p = progress(processSection);
+      if (Math.abs(p - lastP) > .0008 || lastMob !== mob) {
+        lastP = p;
+        const scaled = p*5;
+        const active = Math.min(4,Math.floor(scaled));
+        if (!mob) {
+          details.forEach((item,i) => item.classList.toggle("active",i===active));
+          processCount.textContent = String(active+1).padStart(2,"0");
+          progressFill.style.width = `${p*100}%`;
+          processDrawing.style.transform = `translateY(${((scaled-active)-.5)*-7}px)`;
+        } else processDrawing.style.transform = "";
+        artStatus.textContent = statuses[active];
+        drawingCaption.textContent = captions[active];
+        processLines.forEach(line => {
+          const amount = smooth(clamp(scaled-Number(line.dataset.stage)+.18));
+          line.style.strokeDashoffset = String(1-amount);
+          line.style.opacity = String(amount);
+        });
+      }
+      lastMob = mob;
     }
     function requestUpdate() {
       if (!ticking) {
@@ -661,15 +730,15 @@ function init(D){
     var e=document.createElement("div");e.className="doodle";e.setAttribute("aria-hidden","true");e.style.cssText=d[1];e.style.aspectRatio="1";
     e.innerHTML='<svg viewBox="0 0 64 64">'+D[d[0]]+'</svg>';h.appendChild(e);all.push([e,h,d[2]])})});
   function par(){all.forEach(function(a){var r=a[1].getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
-    a[0].style.transform="translateY("+(-(r.top+r.height/2-innerHeight/2)*a[2]*.4)+"px) rotate("+(r.top*a[2]*.12)+"deg)"})}
+    a[0].style.transform="translateY("+(-(r.top+r.height/2-innerHeight/2)*a[2]*.4)+"px) rotate("+(r.top*a[2]*.04)+"deg)"})}
   if(!reduceMotion){var t=0;addEventListener("scroll",function(){if(!t)t=requestAnimationFrame(function(){t=0;par()})},{passive:true});par();
     if(matchMedia("(hover:hover) and (pointer:fine)").matches)document.querySelectorAll(".button").forEach(function(b){
       b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+(e.clientX-r.left-r.width/2)*.16+"px,"+(e.clientY-r.top-r.height/2)*.26+"px)"});
       b.addEventListener("pointerleave",function(){b.style.transform=""})})}
 })();
 
-  let ly=0;const tb=document.querySelector('.topbar');
-  addEventListener('scroll',()=>{const y=scrollY;tb.style.transform=(y>ly&&y>520)?'translateY(-140%)':'';ly=y},{passive:true});
+  let ly=scrollY,acc=0,hid=false;const tb=document.querySelector('.topbar');
+  addEventListener('scroll',()=>{const y=scrollY,d=y-ly;ly=y;if(y<120){if(hid){hid=false;tb.style.transform=''}acc=0;return}acc=(d>0)===(acc>=0)?acc+d:d;if(!hid&&acc>28){hid=true;tb.style.transform='translateY(-140%)'}else if(hid&&acc<-12){hid=false;tb.style.transform=''}},{passive:true});
 }
 fetch('data.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(D=>{render(D);init(D)}).catch(()=>{$('#fail').hidden=false});
 })();
