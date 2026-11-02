@@ -1,6 +1,122 @@
-    "description": "Monte um resumo inicial da sua necessidade. A equipe da ICONTEC poderá entender melhor o seu objetivo antes da conversa.",
-    "note": "SEM COMPROMISSO · ATENDIMENTO DIRETO",
-    "panelEyebrow": "Seu ponto de partida",
+{
+  "site": {
+    "name": "ICONTEC Construtora",
+    "title": "ICONTEC Construtora | Do projeto à obra entregue",
+    "description": "ICONTEC Construtora: projetos, orçamentos, execução de obras e consultoria.",
+    "whatsapp": "5599981665914",
+    "instagram": "https://www.instagram.com/icontec_construtora/",
+    "instagramHandle": "@icontec_construtora",
+    "copyright": "© 2026 ICONTEC Construtora. Todos os direitos reservados."
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "Serviços",
+        "href": "#servicos"
+      },
+      {
+        "label": "Como trabalhamos",
+        "href": "#processo"
+      },
+      {
+        "label": "Planejamento",
+        "href": "#planejamento"
+      },
+      {
+        "label": "Contato",
+        "href": "#contato"
+      }
+    ],
+    "cta": "Solicitar orçamento"
+  },
+  "hero": {
+    "badge": "Atendimento direto pelo WhatsApp",
+    "title": "Do projeto à obra",
+    "highlight": "entregue.",
+    "copy": "Projetos, orçamentos, execução de obras e consultoria. Planejamento e acompanhamento em cada etapa da sua construção.",
+    "primary": "Falar com a ICONTEC",
+    "secondary": "Conhecer serviços",
+    "chips": [
+      {
+        "label": "Planta baixa",
+        "pos": "left:7%;top:20%"
+      },
+      {
+        "label": "Estrutura",
+        "pos": "right:6%;top:44%"
+      },
+      {
+        "label": "Entrega",
+        "pos": "left:12%;bottom:19%"
+      }
+    ]
+  },
+  "marquee": [
+    "Projetos",
+    "Orçamentos",
+    "Execução de obras",
+    "Consultorias"
+  ],
+  "services": {
+    "eyebrow": "O que fazemos",
+    "title": "Soluções para cada etapa da sua obra.",
+    "text": "Do primeiro planejamento à execução, reunimos serviços essenciais para transformar sua ideia em um projeto viável.",
+    "items": [
+      {
+        "tag": "01 / PROJETOS",
+        "title": "Projetos",
+        "text": "Plantas, layouts e desenhos técnicos pensados para o seu terreno e o seu orçamento."
+      },
+      {
+        "tag": "02 / PLANEJAMENTO",
+        "title": "Orçamentos",
+        "text": "Valores organizados por etapa para ajudar você a planejar os custos da construção."
+      },
+      {
+        "tag": "03 / CONSTRUÇÃO",
+        "title": "Execução de obras",
+        "text": "Acompanhamento da execução, da fundação ao acabamento, com atenção aos detalhes."
+      },
+      {
+        "tag": "04 / ORIENTAÇÃO",
+        "title": "Consultorias",
+        "text": "Orientação técnica antes de comprar, reformar ou começar a construir."
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Por que a ICONTEC",
+    "title": "Mais clareza para construir com confiança.",
+    "text": "Uma obra bem planejada começa com decisões claras. Acompanhamos os pontos importantes para reduzir imprevistos e retrabalho.",
+    "items": [
+      {
+        "title": "Planejamento desde o início",
+        "text": "Definimos o projeto antes da execução, considerando as necessidades e possibilidades da obra."
+      },
+      {
+        "title": "Acompanhamento próximo",
+        "text": "O andamento é acompanhado para manter atenção ao prazo e à qualidade dos serviços."
+      },
+      {
+        "title": "Orçamento transparente",
+        "text": "Os custos são apresentados de forma organizada para que você entenda cada etapa."
+      }
+    ]
+  },
+  "planner": {
+    "eyebrow": "Vamos tirar a ideia do papel",
+    "title": "Conte o que você tem em mente.",
+    "text": "Monte um resumo inicial da sua necessidade. A equipe da ICONTEC poderá entender melhor o seu objetivo antes da conversa.",
+    "tag": "SEM COMPROMISSO · ATENDIMENTO DIRETO",
+    "panelTitle": "Seu ponto de partida",
+    "resultLabel": "Seu resumo inicial",
+    "resultText": "Vamos entender sua ideia e orientar os próximos passos.",
+    "send": "Enviar resumo pelo WhatsApp",
+    "note": "Este formulário não calcula preços nem substitui uma avaliação técnica. Ele apenas organiza as informações iniciais.",
+    "msg": [
+      "Olá! Gostaria de conversar com a ICONTEC sobre um projeto.",
+      "Podem me orientar sobre os próximos passos?"
+    ],
     "fields": [
       {
         "id": "projectType",
@@ -20,7 +136,7 @@
           "Ainda não definido",
           "Imóvel pequeno",
           "Imóvel de médio porte",
-          "Grande porte"
+          "Imóvel de grande porte"
         ]
       },
       {
@@ -33,96 +149,78 @@
           "Quero iniciar em breve"
         ]
       }
-    ],
-    "resultLabel": "Seu resumo inicial",
-    "resultDescription": "Vamos entender sua ideia e orientar os próximos passos.",
-    "send": "Enviar resumo pelo WhatsApp",
-    "disclaimer": "Este formulário não calcula preços nem substitui uma avaliação técnica. Ele apenas organiza as informações iniciais.",
-    "messageIntro": "Olá! Gostaria de conversar com a ICONTEC sobre um projeto.",
-    "messageClosing": "Podem me orientar sobre os próximos passos?"
+    ]
   },
   "process": {
     "eyebrow": "Como trabalhamos",
     "title": "Da primeira ideia até a obra concluída.",
-    "description": "Acompanhe cada etapa. Conforme você avança pela página, o desenho evolui junto com o processo.",
-    "artTop": "ICONTEC / OBRA EM ANDAMENTO",
-    "artAria": "Desenho técnico que evolui de acordo com as etapas da obra",
-    "artFooterLeft": "PROJETO EM EVOLUÇÃO",
-    "artFooterRight": "SCROLL ↕",
-    "counterSuffix": "— 05",
+    "intro": "Acompanhe cada etapa. Conforme você avança pela página, o desenho evolui junto com o processo.",
     "deliverLabel": "O que acontece",
-    "captions": [
-      "ANÁLISE DO TERRENO",
-      "ESTUDO E PROJETO",
-      "PLANEJAMENTO DA OBRA",
-      "ESTRUTURA E ACABAMENTO",
-      "OBRA CONCLUÍDA"
-    ],
-    "statuses": [
-      "01 · ANÁLISE",
-      "02 · PROJETO",
-      "03 · PLANEJAMENTO",
-      "04 · EXECUÇÃO",
-      "05 · ENTREGA"
-    ],
     "steps": [
       {
         "title": "Conversa e análise",
-        "description": "Entendemos o que você pretende construir e avaliamos o terreno, as necessidades e as possibilidades.",
-        "deliver": "Alinhamento das necessidades e orientação inicial."
+        "text": "Entendemos o que você pretende construir e avaliamos o terreno, as necessidades e as possibilidades.",
+        "deliver": "Alinhamento das necessidades e orientação inicial.",
+        "caption": "ANÁLISE DO TERRENO",
+        "status": "01 · ANÁLISE"
       },
       {
         "title": "Desenvolvimento do projeto",
-        "description": "Preparamos a planta e os desenhos técnicos. Você acompanha e avalia as propostas antes de avançar.",
-        "deliver": "Projeto para análise e aprovação."
+        "text": "Preparamos a planta e os desenhos técnicos. Você acompanha e avalia as propostas antes de avançar.",
+        "deliver": "Projeto para análise e aprovação.",
+        "caption": "ESTUDO E PROJETO",
+        "status": "02 · PROJETO"
       },
       {
         "title": "Orçamento e planejamento",
-        "description": "Organizamos os custos previstos, os materiais, a mão de obra e as etapas da execução.",
-        "deliver": "Previsão de custos e cronograma estimado."
+        "text": "Organizamos os custos previstos, os materiais, a mão de obra e as etapas da execução.",
+        "deliver": "Previsão de custos e cronograma estimado.",
+        "caption": "PLANEJAMENTO DA OBRA",
+        "status": "03 · PLANEJAMENTO"
       },
       {
         "title": "Execução acompanhada",
-        "description": "Com o planejamento aprovado, a obra é executada com acompanhamento técnico e atenção à qualidade.",
-        "deliver": "Acompanhamento do andamento da obra."
+        "text": "Com o planejamento aprovado, a obra é executada com acompanhamento técnico e atenção à qualidade.",
+        "deliver": "Acompanhamento do andamento da obra.",
+        "caption": "ESTRUTURA E ACABAMENTO",
+        "status": "04 · EXECUÇÃO"
       },
       {
         "title": "Finalização e entrega",
-        "description": "Conferimos os serviços concluídos e tratamos os ajustes finais previstos para a entrega.",
-        "deliver": "Verificação final e conclusão da obra."
+        "text": "Conferimos os serviços concluídos e tratamos os ajustes finais previstos para a entrega.",
+        "deliver": "Verificação final e conclusão da obra.",
+        "caption": "OBRA CONCLUÍDA",
+        "status": "05 · ENTREGA"
       }
     ]
   },
   "faq": {
     "eyebrow": "Dúvidas frequentes",
     "title": "Informação clara em cada etapa.",
-    "description": "Algumas respostas para ajudar você a começar a planejar sua obra com mais tranquilidade.",
+    "text": "Algumas respostas para ajudar você a começar a planejar sua obra com mais tranquilidade.",
     "items": [
       {
-        "question": "Posso contratar apenas o projeto?",
-        "answer": "Sim. Você pode entrar em contato para conversar sobre a necessidade específica, seja projeto, orçamento, execução ou consultoria."
+        "q": "Posso contratar apenas o projeto?",
+        "a": "Sim. Você pode entrar em contato para conversar sobre a necessidade específica, seja projeto, orçamento, execução ou consultoria."
       },
       {
-        "question": "É possível solicitar um orçamento antes de começar?",
-        "answer": "Sim. O primeiro passo é apresentar as informações disponíveis para que a equipe entenda o escopo e oriente sobre a avaliação necessária."
+        "q": "É possível solicitar um orçamento antes de começar?",
+        "a": "Sim. O primeiro passo é apresentar as informações disponíveis para que a equipe entenda o escopo e oriente sobre a avaliação necessária."
       },
       {
-        "question": "Vocês acompanham a execução da obra?",
-        "answer": "O acompanhamento pode fazer parte do serviço contratado. Os detalhes são alinhados conforme as características de cada obra."
+        "q": "Vocês acompanham a execução da obra?",
+        "a": "O acompanhamento pode fazer parte do serviço contratado. Os detalhes são alinhados conforme as características de cada obra."
       },
       {
-        "question": "Como faço para iniciar uma conversa?",
-        "answer": "Use o botão de WhatsApp desta página e conte brevemente o que você pretende construir, reformar ou planejar."
+        "q": "Como faço para iniciar uma conversa?",
+        "a": "Use o botão de WhatsApp desta página e conte brevemente o que você pretende construir, reformar ou planejar."
       }
     ]
   },
   "contact": {
+    "eyebrow": "Vamos conversar?",
     "title": "Sua próxima obra começa com uma boa conversa.",
-    "description": "Conte um pouco sobre o que você pretende construir ou reformar. Entre em contato com a ICONTEC.",
-    "cta": "Solicitar orçamento"
-  },
-  "floating": {
-    "ariaLabel": "Conversar com a ICONTEC pelo WhatsApp",
-    "backTopLabel": "Voltar ao topo"
+    "text": "Conte um pouco sobre o que você pretende construir ou reformar. Entre em contato com a ICONTEC.",
+    "button": "Solicitar orçamento"
   }
 }
