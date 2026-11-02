@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f7f8f6">
-  <meta name="description" content="ICONTEC Construtora">
-  <link rel="icon" href="favicon.jpg" type="image/jpeg">
-  <title>ICONTEC Construtora</title>
+  <meta name="description" content="ICONTEC Construtora: projetos, orçamentos, execução de obras e consultoria.">
+  <title>ICONTEC Construtora | Do projeto à obra entregue</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="data.json" as="fetch" crossorigin>
   <style>
     :root {
       --bg: #f7f8f6;
@@ -37,11 +37,10 @@
       background: rgba(255,255,255,.9); border: 1px solid rgba(220,230,226,.9);
       border-radius: 14px; backdrop-filter: blur(16px);
     }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font: 800 19px Manrope,sans-serif; letter-spacing: -.8px; margin-right: auto; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font: 800 19px DM Sans,sans-serif; letter-spacing: -.8px; margin-right: auto; }
     .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border: 1.5px solid var(--accent); border-radius: 10px; color: var(--accent); font-size: 18px; }
     .brand span:last-child { color: var(--accent); }
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .mobile-menu-toggle { display:none; }
     .nav-links a { color: var(--muted); font-size: 14px; font-weight: 600; transition: color .2s; }
     .nav-links a:hover { color: var(--accent-dark); }
     .button { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 13px 20px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 700; font-size: 14px; transition: background .2s, transform .2s; }
@@ -52,16 +51,16 @@
     .hero-grid { position: sticky; top: 0; min-height: 100vh; padding-top: 100px; padding-bottom: 35px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 64px; }
     .hero-copy-block { position: relative; z-index: 2; }
     .hero-visual { transition: border-radius .2s; }
-    .blueprint-tag { position:absolute; top:22px; right:24px; z-index:2; color:#63827d; font:700 10px Manrope,sans-serif; letter-spacing:1.5px; }
+    .blueprint-tag { position:absolute; top:22px; right:24px; z-index:2; color:#63827d; font:700 10px DM Sans,sans-serif; letter-spacing:1.5px; }
     .blueprint-grid { position:absolute; inset:0; opacity:.45; background-image:linear-gradient(rgba(21,155,142,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(21,155,142,.10) 1px,transparent 1px); background-size:28px 28px; mask-image:linear-gradient(135deg,#000,transparent 85%); }
     .house .draw-line { stroke-dasharray:1; stroke-dashoffset:1; }
     .house .draw-fill { opacity:0; transition:opacity .15s; }
     .scroll-caption { position:absolute; bottom:20px; right:24px; z-index:2; color:#63827d; font-size:11px; letter-spacing:.7px; }
     .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 1.7px; font-size: 11px; font-weight: 800; margin-bottom: 22px; }
     .eyebrow:before { content: ""; width: 26px; height: 1px; background: var(--accent); }
-    h1,h2,h3 { font-family: Manrope,sans-serif; letter-spacing: -1.8px; line-height: 1.12; }
+    h1,h2,h3 { font-family: DM Sans,sans-serif; letter-spacing: -1.8px; line-height: 1.12; }
     h1 { max-width: 660px; font-size: clamp(48px, 6.2vw, 78px); font-weight: 800; }
-    h1 span { color: var(--accent); }
+    
     .hero-copy { max-width: 520px; color: var(--muted); font-size: 17px; margin: 24px 0 30px; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .hero-visual { min-height: 420px; border-radius: 22px; background: #e8f0ed; position: relative; overflow: hidden; display: grid; place-items: center; }
@@ -79,7 +78,7 @@
     .services { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:48px; }
     .service { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:27px 23px; min-height:220px; transition:transform .25s,border-color .25s; }
     .service:hover { transform:translateY(-5px); border-color:#a9d6cf; }
-    .service-number { color:var(--accent); font:700 12px Manrope,sans-serif; letter-spacing:1px; }
+    .service-number { color:var(--accent); font:700 12px DM Sans,sans-serif; letter-spacing:1px; }
     .service h3 { font-size:21px; margin:28px 0 9px; letter-spacing:-.6px; }
     .service p { color:var(--muted); font-size:14px; }
     .why { background:#eef3f0; }
@@ -96,7 +95,7 @@
     .process-list { display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:58px; border-top:1px solid var(--line); }
     .process-step { position:relative; padding:26px 19px 0 0; }
     .process-step:not(:last-child):after { content:""; position:absolute; top:-4px; right:14px; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px var(--bg); }
-    .step-no { color:var(--accent); font:800 12px Manrope,sans-serif; letter-spacing:1.2px; }
+    .step-no { color:var(--accent); font:800 12px DM Sans,sans-serif; letter-spacing:1.2px; }
     .process-step h3 { font-size:20px; letter-spacing:-.7px; margin:20px 0 10px; }
     .process-step p { color:var(--muted); font-size:13px; line-height:1.7; min-height:88px; }
     .deliver { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); color:var(--ink); font-size:12px; }
@@ -113,11 +112,11 @@
     .process-detail .deliver { max-width:400px; }
     .process-progress { height:3px; width:100%; background:#d9e4df; margin-top:18px; overflow:hidden; }
     .progress-fill { display:block; width:0; height:100%; background:var(--accent); }
-    .process-counter { display:flex; justify-content:space-between; color:#8b9c98; font:700 11px Manrope,sans-serif; letter-spacing:1.5px; margin-top:12px; }
+    .process-counter { display:flex; justify-content:space-between; color:#8b9c98; font:700 11px DM Sans,sans-serif; letter-spacing:1.5px; margin-top:12px; }
     .process-counter span:first-child { color:var(--accent-dark); }
     .process-art { min-width:0; position:relative; padding:22px; border:1px solid #dce7e1; border-radius:18px; background:#f8faf8; box-shadow:0 25px 70px rgba(25,65,54,.07); }
     .process-art svg { width:100%; max-height:470px; display:block; }
-    .art-topline,.art-footer { display:flex; justify-content:space-between; gap:15px; color:#7b9690; font:700 9px Manrope,sans-serif; letter-spacing:1.3px; }
+    .art-topline,.art-footer { display:flex; justify-content:space-between; gap:15px; color:#7b9690; font:700 9px DM Sans,sans-serif; letter-spacing:1.3px; }
     .art-topline { padding:0 2px 12px; border-bottom:1px solid #e4ece7; }
     .art-footer { padding:12px 2px 0; border-top:1px solid #e4ece7; }
     .stage-line { opacity:0; stroke-dasharray:1; stroke-dashoffset:1; }
@@ -161,7 +160,7 @@
     .planner-panel select:focus,.planner-panel input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(21,155,142,.12); }
     .planner-result { margin-top:22px; padding:18px; border-radius:13px; background:#eaf3ef; }
     .planner-result small { display:block; color:var(--accent-dark); font-size:10px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; }
-    .planner-result strong { display:block; font:700 19px Manrope,sans-serif; margin-top:5px; }
+    .planner-result strong { display:block; font:700 19px DM Sans,sans-serif; margin-top:5px; }
     .planner-result p { color:var(--muted); font-size:13px; margin-top:6px; }
     .planner-panel .button { width:100%; margin-top:16px; border:0; cursor:pointer; }
     .planner-note { color:var(--muted); font-size:11px; margin-top:12px; }
@@ -169,7 +168,7 @@
     .faq-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
     .faq-list { border-top:1px solid #d6e1dc; }
     .faq-item { border-bottom:1px solid #d6e1dc; }
-    .faq-question { width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 0; border:0; background:none; color:var(--ink); text-align:left; cursor:pointer; font:700 16px Manrope,sans-serif; }
+    .faq-question { width:100%; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:22px 0; border:0; background:none; color:var(--ink); text-align:left; cursor:pointer; font:700 16px DM Sans,sans-serif; }
     .faq-question span:last-child { color:var(--accent); font-size:23px; transition:transform .25s; }
     .faq-answer { display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s; }
     .faq-answer > div { overflow:hidden; }
@@ -213,257 +212,460 @@
       .process-step p { min-height:70px; }
     }
     @media(max-width:680px) {
-      html { scroll-padding-top:82px; }
-      .container { width:min(100% - 32px,var(--max)); }
+      .container { width:min(100% - 36px,var(--max)); }
       .topbar { inset:8px 0 auto; }
-      nav { position:relative; width:calc(100% - 20px); min-height:58px; padding:7px 8px 7px 12px; gap:8px; }
-      .brand { font-size:15px; gap:7px; }
-      .brand img { width:30px!important; height:30px!important; }
-      .nav-links {
-        display:none; position:absolute; top:calc(100% + 8px); left:0; right:0;
-        padding:9px; flex-direction:column; align-items:stretch; gap:0;
-        border:1px solid var(--line); border-radius:13px; background:#fff;
-        box-shadow:0 16px 36px rgba(16,45,59,.14);
-      }
-      .nav-links.open { display:flex; }
-      .nav-links a { padding:12px 10px; font-size:14px; border-radius:8px; }
-      .nav-links a:after { display:none; }
-      .nav-links a:hover,.nav-links a.active { background:#edf6f2; }
-      nav .button { padding:10px 11px; font-size:10px; white-space:nowrap; }
-      .mobile-menu-toggle {
-        display:grid; place-items:center; flex:0 0 37px; width:37px; height:37px;
-        border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--ink);
-        font-size:19px; line-height:1; cursor:pointer;
-      }
-
-      /* Hero: todo o conteúdo principal cabe na primeira tela do celular. */
-      .hero { height:180svh; min-height:0; }
-      .hero-grid {
-        height:100svh; min-height:100svh; padding-top:76px; padding-bottom:12px;
-        grid-template-columns:1fr; grid-template-rows:auto minmax(145px,27svh);
-        gap:10px; align-content:center;
-      }
-      .hero-copy-block { min-width:0; }
-      .eyebrow { font-size:9px; letter-spacing:1.2px; margin-bottom:10px; gap:7px; }
-      .eyebrow:before { width:18px; }
-      h1 { font-size:clamp(34px,10vw,50px); line-height:1.02; letter-spacing:-1.5px; }
-      .hero-copy { font-size:12px; line-height:1.45; margin:10px 0 13px; }
-      .actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-      .actions .button { min-width:0; padding:10px 8px; font-size:10px; text-align:center; }
-      .hero-visual { min-height:145px; height:27svh; max-height:205px; border-radius:16px; }
-      .hero-visual:before { width:230px; height:230px; }
-      .hero-visual:after { width:175px; height:175px; }
-      .house { width:min(65%,260px); max-height:90%; }
-      .visual-label { left:12px; bottom:10px; font-size:7px; letter-spacing:.7px; }
-      .blueprint-tag { top:10px; right:11px; font-size:7px; letter-spacing:.8px; }
-      .scroll-caption { display:none; }
-
-      .section { padding:68px 0; }
-      .section-head h2 { font-size:clamp(31px,8.5vw,44px); line-height:1.08; }
-      .section-head>p:last-child { font-size:13px; line-height:1.6; }
-      .services { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; margin-top:28px; }
-      .service { min-width:0; min-height:190px; padding:17px 13px; }
-      .service h3 { font-size:17px; margin:19px 0 8px; }
-      .service p { font-size:12px; line-height:1.5; }
-      .why-grid { grid-template-columns:1fr; gap:26px; }
-      .why-list { gap:19px; }
-      .planner-grid,.faq-grid { grid-template-columns:1fr; gap:28px; }
-      .planner-panel { padding:22px 17px; }
-      .faq-question { font-size:14px; }
-
-      /* Processo: mantém o painel sticky e troca as etapas conforme o scroll. */
-      .process-scroll { height:500svh; min-height:0; }
-      .process-sticky { position:sticky; top:0; height:100svh; min-height:100svh; padding:68px 0 10px; overflow:hidden; }
-      .process-layout {
-        height:100%; display:grid; grid-template-columns:1fr;
-        grid-template-rows:minmax(0,1fr) auto; gap:8px;
-        padding-top:0; padding-bottom:0; align-items:stretch;
-      }
-      .process-content { min-height:0; display:flex; flex-direction:column; justify-content:center; }
-      .process-content .section-head .eyebrow { margin-bottom:7px; }
-      .process-content .section-head h2 { font-size:clamp(27px,7.5vw,36px); line-height:1.04; }
-      .process-intro { margin-top:7px; font-size:10px; line-height:1.4; }
-      .process-steps { min-height:0; height:clamp(125px,21svh,165px); margin-top:10px; }
-      .process-detail { max-width:100%; }
-      .process-detail h3 { font-size:clamp(22px,6vw,29px); margin:6px 0; }
-      .process-detail p { font-size:11px; line-height:1.45; }
-      .process-detail .deliver { margin-top:8px; padding-top:7px; font-size:10px; }
-      .process-detail .deliver b { font-size:9px; margin-bottom:3px; }
-      .process-progress { margin-top:9px; }
-      .process-counter { margin-top:6px; font-size:9px; }
-      .process-art { padding:7px 9px; border-radius:13px; }
-      .art-topline,.art-footer { font-size:6px; letter-spacing:.6px; gap:5px; }
-      .art-topline { padding-bottom:5px; }
-      .art-footer { padding-top:5px; }
-      .process-art svg { height:clamp(105px,18svh,145px); max-height:none; width:100%; }
-      .process-art svg rect:first-of-type { opacity:.55; }
-
-      .contact { padding:62px 0; }
+      nav { width:calc(100% - 20px); min-height:60px; padding:8px 9px 8px 14px; gap:10px; }
+      .brand { font-size:17px; }
+      .brand-mark { width:31px;height:31px; }
+      .nav-links { display:none; }
+      nav .button { padding:11px 13px; font-size:12px; }
+      .hero { height:155vh; min-height:1050px; }
+      .hero-grid { min-height:100svh; padding-top:100px; padding-bottom:35px; grid-template-columns:1fr; gap:24px; align-content:center; }
+      h1 { font-size:clamp(46px,13vw,66px); }
+      .hero-copy { font-size:15px; margin:18px 0 24px; }
+      .hero-visual { min-height:260px; }
+      .visual-label { font-size:9px; left:15px; bottom:14px; }
+      .blueprint-tag { top:14px; right:14px; font-size:8px; }
+      .section { padding:75px 0; }
+      .services { gap:10px; margin-top:32px; }
+      .service { min-height:195px; padding:20px 16px; }
+      .service h3 { font-size:18px; margin-top:23px; }
+      .service p { font-size:13px; }
+      .why-grid { grid-template-columns:1fr; gap:35px; }
+      .process-scroll { height:auto; }
+      .process-sticky { position:relative; min-height:0; padding:75px 0 80px; }
+      .process-layout { display:flex; flex-direction:column; gap:30px; padding-top:0; padding-bottom:0; align-items:stretch; }
+      .process-steps { min-height:0; margin-top:28px; }
+      .process-detail { position:relative; display:none; }
+      .process-detail.active { display:block; }
+      .process-progress { margin-top:22px; }
+      .process-art { padding:14px; }
+      .process-art svg { max-height:330px; }
+      .process-heading { display:block; }
+      .process-heading .support { margin-top:17px; }
+      .process-list { grid-template-columns:1fr; margin-top:38px; border-top:0; border-left:1px solid var(--line); margin-left:5px; }
+      .process-step { padding:0 0 32px 25px; }
+      .process-step:after,.process-step:nth-child(3):after { display:block; top:4px; left:-4px; right:auto; }
+      .process-step:last-child { padding-bottom:0; }
+      .process-step h3 { margin:8px 0; }
+      .process-step p { min-height:0; max-width:440px; }
+      .deliver { max-width:440px; margin-top:12px; }
+      .contact { padding:68px 0; }
       .contact-inner { display:block; }
-      .contact h2 { font-size:clamp(34px,9vw,48px); }
-      .contact p { font-size:13px; }
-      .contact .button { margin-top:22px; }
+      .contact .button { margin-top:25px; }
       .footer-inner { align-items:flex-start; flex-direction:column; }
-      .floating-contact { right:15px; bottom:15px; width:50px; height:50px; }
-      .back-top { right:20px; bottom:76px; }
-      .cursor-glow { display:none; }
-      .reveal { transform:translateY(12px); }
-    }
-    @media(max-width:380px) {
-      .brand { font-size:13px; }
-      nav .button { font-size:9px; padding-inline:8px; }
-      .mobile-menu-toggle { flex-basis:34px; width:34px; height:34px; }
-      .hero-copy { font-size:11px; }
-      .actions .button { font-size:9px; }
-      .service { padding:15px 11px; }
-      .service h3 { font-size:16px; }
-      .service p { font-size:11px; }
-    }
-    @media(max-height:650px) and (max-width:680px) {
-      .hero-grid { padding-top:68px; grid-template-rows:auto minmax(115px,21svh); gap:7px; }
-      h1 { font-size:clamp(30px,8vw,42px); }
-      .hero-copy { margin:7px 0 9px; font-size:10px; }
-      .hero-visual { height:21svh; min-height:115px; }
-      .process-sticky { padding-top:62px; }
-      .process-steps { height:18svh; }
-      .process-art svg { height:14svh; }
     }
     @media(prefers-reduced-motion:reduce) {
       *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
       .reveal { opacity:1; transform:none; }
     }
+
+/* ===== Camada premium v2 ===== */
+h1,h2,h3{font-family:"Bricolage Grotesque",DM Sans,sans-serif}
+body{background:var(--bg) linear-gradient(rgba(21,155,142,.05) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(21,155,142,.05) 1px,transparent 1px) 0 0/48px 48px}
+nav{border-radius:99px;padding-left:22px;box-shadow:0 10px 40px -18px rgba(16,45,59,.35)}
+.brand-mark{width:36px;height:36px;border:0;border-radius:0}
+.button{border-radius:99px;padding:14px 26px;background:linear-gradient(120deg,#159b8e,#1a8fb0);box-shadow:0 14px 30px -14px rgba(21,155,142,.9);position:relative;overflow:hidden;will-change:transform}
+.button:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.button:hover:before{transform:translateX(120%)}
+.button.outline{background:transparent;box-shadow:none}
+.hero:before{content:"";position:absolute;inset:-10% -10%;z-index:0;pointer-events:none;background:radial-gradient(34% 30% at 82% 20%,rgba(21,155,142,.22),transparent 70%),radial-gradient(30% 30% at 8% 75%,rgba(26,143,176,.18),transparent 70%);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-3%,4%) scale(1.08)}}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:99px;background:#fff;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--accent-dark);margin-bottom:26px;box-shadow:0 8px 24px -14px rgba(16,45,59,.3)}
+.badge i{width:8px;height:8px;border-radius:50%;background:#22c9a8;box-shadow:0 0 0 0 rgba(34,201,168,.6);animation:ping 1.8s infinite}
+@keyframes ping{to{box-shadow:0 0 0 10px rgba(34,201,168,0)}}
+h1{font-size:clamp(52px,7vw,98px);letter-spacing:-.04em;line-height:.98;max-width:720px;animation:heroIn 1.1s .1s cubic-bezier(.2,.8,.2,1) both}
+
+.hero-copy{font-size:19px;animation:heroIn 1.1s .35s cubic-bezier(.2,.8,.2,1) both}
+.actions{animation:heroIn 1.1s .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes heroIn{from{opacity:0;transform:translateY(42px);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+.hero-visual{border-radius:34px;background:linear-gradient(155deg,#0a2430,#0f3f4d 68%,#0f5a5c);box-shadow:0 50px 90px -40px rgba(10,36,48,.75),inset 0 0 0 1px rgba(255,255,255,.1)}
+.hero-visual:before{border:1px dashed rgba(111,240,220,.28);animation:spin 50s linear infinite}
+.hero-visual:after{border-color:rgba(111,240,220,.16)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.blueprint-grid{opacity:1;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px)}
+.blueprint-tag,.visual-label,.scroll-caption{color:#8fe9dc}
+.house path,.house line,.house rect{stroke:#6ff0dc;stroke-width:2.4;filter:drop-shadow(0 0 6px rgba(111,240,220,.55))}
+.house .draw-fill{fill:rgba(111,240,220,.14);stroke:none;filter:none}
+.section{padding:130px 0}
+.section-head h2{font-size:clamp(36px,5vw,66px);letter-spacing:-.035em}
+.eyebrow{letter-spacing:1.4px}
+.mq{background:#0a2430;color:#fff;overflow:hidden;padding:22px 0;transform:rotate(-1.4deg);margin:-26px -20px 26px;position:relative;z-index:3}
+.mq div{display:flex;gap:46px;width:max-content;align-items:center;font:800 30px "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;animation:mq 28s linear infinite}
+.mq b{color:#22c9a8;font-size:14px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.service{min-height:270px;border-radius:24px;background:radial-gradient(260px circle at var(--mx,-400px) var(--my,-400px),rgba(21,155,142,.16),transparent 70%),#fff;box-shadow:0 20px 50px -34px rgba(16,45,59,.4)}
+.service:hover{border-color:var(--accent);box-shadow:0 34px 70px -34px rgba(21,155,142,.6)}
+.ico{display:block;width:50px;height:50px;fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px;position:relative;z-index:1;transform-origin:50% 80%}
+.service:hover .ico{animation:wob .9s ease-in-out}
+@keyframes wob{30%{transform:rotate(-9deg) translateY(-4px)}60%{transform:rotate(6deg)}}
+.service h3{font-size:25px;margin-top:20px}
+.service p{font-size:15px}
+.why{background:linear-gradient(160deg,#0a2430,#103a48);color:#fff;position:relative;overflow:hidden}
+.why:before{content:"";position:absolute;width:600px;height:600px;right:-200px;top:-200px;border-radius:50%;background:radial-gradient(circle,rgba(34,201,168,.22),transparent 65%);pointer-events:none}
+.why .container{position:relative;z-index:2}
+.why .eyebrow{color:#6ff0dc}.why .eyebrow:before{background:#6ff0dc}
+.why .section-head>p:last-child,.why-item p{color:#a9c4c9}
+.why-item{border-color:rgba(255,255,255,.16)}
+.why-item h3{color:#fff;font-size:23px}
+.why-item:hover{border-color:#6ff0dc}
+.process-art{background:linear-gradient(155deg,#0a2430,#0f3f4d);border-color:rgba(255,255,255,.1);box-shadow:0 40px 80px -40px rgba(10,36,48,.7)}
+.process-art svg g[stroke="#178d82"]{stroke:#6ff0dc;filter:drop-shadow(0 0 5px rgba(111,240,220,.5))}
+.process-art svg g[fill="#178d82"]{fill:#8fe9dc}
+.process-art svg pattern path{stroke:#fff;stroke-opacity:.08}
+.art-topline,.art-footer{color:#8fe9dc;border-color:rgba(255,255,255,.12)}
+.process-detail h3{font-size:clamp(30px,3.4vw,46px)}
+.planner-panel{border-radius:28px}
+.contact{padding:140px 0;background:radial-gradient(40% 60% at 85% 20%,rgba(34,201,168,.2),transparent 70%),linear-gradient(160deg,#0a2430,#102d3b)}
+.contact:before{content:"ICONTEC";position:absolute;left:-1%;bottom:-.2em;font:800 clamp(110px,24vw,360px)/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.1);pointer-events:none}
+.contact h2{font-size:clamp(38px,5.6vw,76px);letter-spacing:-.035em}
+.contact .button{background:#fff;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+.doodle{position:absolute;color:#159b8e;opacity:.32;pointer-events:none;z-index:1;will-change:transform}
+.doodle svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.why .doodle,.contact .doodle{color:#6ff0dc;opacity:.4}
+@media(max-width:900px){.doodle{display:none}.mq div{font-size:22px}}
+@media(max-width:680px){h1{font-size:clamp(46px,14vw,70px)}.section{padding:80px 0}.contact{padding:90px 0}}
+
+/* ===== v3: acabamento premium + performance ===== */
+::selection{background:#159b8e;color:#fff}
+html{scrollbar-width:thin;scrollbar-color:#159b8e #eef3f0}
+body:after{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.topbar{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+h1{animation:none}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .12em}
+.w i{display:inline-block;font-style:normal;transform:translateY(112%);animation:wordUp .95s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.08s + .15s)}
+.hl i{background:linear-gradient(100deg,#159b8e,#1a8fb0);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes wordUp{to{transform:none}}
+.chip{position:absolute;z-index:3;padding:9px 15px;border-radius:99px;font-size:12px;font-weight:700;color:#e6fffb;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(10px);animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.planner-tag{color:var(--accent-dark);font-size:13px;font-weight:700;margin-top:25px;letter-spacing:.04em}
+.cursor-glow{left:0;top:0;will-change:transform}
+.service{will-change:auto}
+.why,.planner,.faq{content-visibility:auto;contain-intrinsic-size:auto 760px}
+#fail{position:fixed;inset:auto 16px 16px;z-index:200;padding:16px 20px;border-radius:14px;background:#102d3b;color:#fff;font-size:14px}
+@media(max-width:680px){body:after,.chip{display:none}.process-detail{display:block!important;position:relative;opacity:1;transform:none;margin-bottom:28px}.process-progress,.process-counter{display:none}.stage-line{opacity:1!important;stroke-dashoffset:0!important}}
+@media(prefers-reduced-motion:reduce){.w i{transform:none}}
   </style>
 </head>
 <body>
-  <div id="app" aria-live="off"></div>
-  <script>
-  const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-  const wa = phone => `https://api.whatsapp.com/send?phone=${encodeURIComponent(phone)}`;
-  const houseSvg = `<svg class="house" id="heroDrawing" viewBox="0 0 400 330" role="img" aria-hidden="true">
-    <path class="draw-fill" d="M65 145 200 48l135 97v145H65z"/>
-    <path class="draw-line" pathLength="1" d="M45 148 200 35l155 113"/><path class="draw-line" pathLength="1" d="M65 145v145h270V145"/><path class="draw-line" pathLength="1" d="M45 148h310"/><path class="draw-line" pathLength="1" d="M165 290v-90h70v90"/><path class="draw-line" pathLength="1" d="M95 174h65v58H95z"/><path class="draw-line" pathLength="1" d="M240 174h65v58h-65z"/><path class="draw-line" pathLength="1" d="M127 174v58m-32-29h65m112-29v58m-32-29h65"/><path class="draw-line" pathLength="1" d="M200 35v-20m-9 0h18"/><path class="draw-line" pathLength="1" d="M48 310h304m-287-10v20m270-20v20"/><path class="draw-line" pathLength="1" d="M22 148h23m310 0h23M200 8v7"/><path class="draw-line" pathLength="1" d="M65 130 65 115h270v15"/>
-  </svg>`;
-  const processSvg = `<svg id="processDrawing" viewBox="0 0 520 520" role="img">
-    <defs><pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#159b8e" stroke-opacity=".12" stroke-width="1"/></pattern></defs>
-    <rect width="520" height="520" fill="url(#smallGrid)"/>
-    <g fill="none" stroke="#178d82" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-      <path class="stage-line" data-stage="0" pathLength="1" d="M55 420H465M85 435H435M105 420v15m310-15v15"/><path class="stage-line" data-stage="0" pathLength="1" d="M100 385h320M115 385v35m290-35v35"/>
-      <path class="stage-line" data-stage="1" pathLength="1" d="M130 385V205H390V385M105 205 260 105l155 100"/><path class="stage-line" data-stage="1" pathLength="1" d="M130 205h260M260 105v-28m-12 0h24"/>
-      <path class="stage-line" data-stage="2" pathLength="1" d="M145 385V220h230v165M145 275h230M145 330h230M205 220v165m110-165v165"/><path class="stage-line" data-stage="2" pathLength="1" d="M130 205 260 120l130 85"/>
-      <path class="stage-line" data-stage="3" pathLength="1" d="M165 240h65v55h-65zM290 240h65v55h-65zM165 325h65v45h-65zM290 325h65v45h-65z"/><path class="stage-line" data-stage="3" pathLength="1" d="M197 240v55m-32-27h65m92-28v55m-32-27h65M260 385v-100h35v100"/>
-      <path class="stage-line" data-stage="4" pathLength="1" d="M105 205 260 95l155 110M118 196 260 95l142 101"/><path class="stage-line" data-stage="4" pathLength="1" d="M80 450h360M95 450v-8m330 8v-8M260 95V55m-12 0h24"/>
-    </g><g fill="none" stroke="#7ba9a2" stroke-width="1.2" stroke-dasharray="4 6" opacity=".45"><path d="M80 205V385M440 205V385M80 190H440M130 405H390"/></g>
-    <g fill="#178d82" font-family="Manrope,sans-serif" font-size="11" letter-spacing="1.5"><text x="260" y="480" text-anchor="middle" id="drawingCaption"></text></g><circle class="scan-point" cx="260" cy="95" r="5" fill="#159b8e"/>
-  </svg>`;
-  function renderSite(d) {
-    const s=d.site, n=d.navigation, h=d.hero, sv=d.services, w=d.why, p=d.planner, pr=d.process, f=d.faq, c=d.contact;
-    document.title=s.title;
-    document.querySelector('meta[name="description"]').content=s.description;
-    document.querySelector('meta[name="theme-color"]').content=s.themeColor;
-    document.getElementById("app").innerHTML = `
-      <div class="scroll-progress" aria-hidden="true"><span id="siteProgress"></span></div><div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-      <div class="topbar"><nav aria-label="${escapeHTML(n.ariaLabel)}">
-        <a class="brand" href="#inicio" aria-label="${escapeHTML(n.logoAlt)}"><img src="${escapeHTML(s.logo)}" alt="${escapeHTML(n.logoAlt)}" onerror="this.style.display='none'" style="width:36px;height:36px;object-fit:contain;border-radius:8px"><span>ICON<span>TEC</span></span></a>
-        <div class="nav-links">${n.links.map(x=>`<a href="${escapeHTML(x.href)}">${escapeHTML(x.label)}</a>`).join("")}</div>
-        <a class="button" href="${wa(s.whatsapp)}" target="_blank" rel="noopener">${escapeHTML(n.cta)} <span aria-hidden="true">↗</span></a>
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
-      </nav></div>
-      <header class="hero" id="inicio"><div class="container hero-grid"><div class="hero-copy-block reveal">
-        <p class="eyebrow">${escapeHTML(h.eyebrow)}</p><h1>${escapeHTML(h.title)} <span>${escapeHTML(h.highlight)}</span></h1><p class="hero-copy">${escapeHTML(h.description)}</p>
-        <div class="actions"><a class="button" href="${wa(s.whatsapp)}" target="_blank" rel="noopener">${escapeHTML(h.primaryCta)} ↗</a><a class="button outline" href="#servicos">${escapeHTML(h.secondaryCta)}</a></div>
-      </div><div class="hero-visual reveal" aria-label="${escapeHTML(h.visualAria)}"><div class="blueprint-grid"></div><span class="blueprint-tag">${escapeHTML(h.blueprintTag)}</span>${houseSvg}<span class="visual-label">${escapeHTML(h.visualLabel)}</span><span class="scroll-caption">${escapeHTML(h.scrollCaption)}</span></div></div></header>
-      <main>
-        <section class="section" id="servicos"><div class="container"><div class="section-head reveal"><p class="eyebrow">${escapeHTML(sv.eyebrow)}</p><h2>${escapeHTML(sv.title)}</h2><p>${escapeHTML(sv.description)}</p></div>
-          <div class="services">${sv.items.map((x,i)=>`<article class="service reveal"><span class="service-number">${escapeHTML(x.number)}</span><h3>${escapeHTML(x.title)}</h3><p>${escapeHTML(x.description)}</p></article>`).join("")}</div></div></section>
-        <section class="section why"><div class="container why-grid"><div class="section-head reveal"><p class="eyebrow">${escapeHTML(w.eyebrow)}</p><h2>${escapeHTML(w.title)}</h2><p>${escapeHTML(w.description)}</p></div><div class="why-list">${w.items.map(x=>`<article class="why-item reveal"><h3>${escapeHTML(x.title)}</h3><p>${escapeHTML(x.description)}</p></article>`).join("")}</div></div></section>
-        <section class="section planner" id="planejamento"><div class="container planner-grid"><div class="section-head reveal"><p class="eyebrow">${escapeHTML(p.eyebrow)}</p><h2>${escapeHTML(p.title)}</h2><p>${escapeHTML(p.description)}</p><p style="color:var(--accent-dark);font-size:13px;font-weight:700;margin-top:25px">${escapeHTML(p.note)}</p></div>
-          <div class="planner-panel reveal"><p class="eyebrow" style="margin-bottom:4px">${escapeHTML(p.panelEyebrow)}</p>${p.fields.map(field=>`<label for="${escapeHTML(field.id)}">${escapeHTML(field.label)}</label><select id="${escapeHTML(field.id)}">${field.options.map((o,i)=>`<option value="${escapeHTML(o)}" ${i===0?"selected":""}>${escapeHTML(o)}</option>`).join("")}</select>`).join("")}
-          <div class="planner-result" aria-live="polite"><small>${escapeHTML(p.resultLabel)}</small><strong id="plannerTitle">${escapeHTML(p.fields[0].options[0])}</strong><p id="plannerDescription">${escapeHTML(p.resultDescription)}</p></div>
-          <button class="button" id="plannerSend" type="button">${escapeHTML(p.send)} ↗</button><p class="planner-note">${escapeHTML(p.disclaimer)}</p></div></div></section>
-        <section class="process-scroll" id="processo"><div class="process-sticky"><div class="container process-layout"><div class="process-content"><div class="section-head"><p class="eyebrow">${escapeHTML(pr.eyebrow)}</p><h2>${escapeHTML(pr.title)}</h2><p class="process-intro">${escapeHTML(pr.description)}</p></div>
-          <div class="process-steps" aria-live="polite">${pr.steps.map((x,i)=>`<article class="process-detail ${i===0?"active":""}"><span class="step-no">ETAPA ${String(i+1).padStart(2,"0")} / ${String(pr.steps.length).padStart(2,"0")}</span><h3>${escapeHTML(x.title)}</h3><p>${escapeHTML(x.description)}</p><div class="deliver"><b>${escapeHTML(pr.deliverLabel)}</b>${escapeHTML(x.deliver)}</div></article>`).join("")}</div>
-          <div class="process-progress"><span class="progress-fill"></span></div><div class="process-counter"><span id="processCount">01</span><span>${escapeHTML(pr.counterSuffix)}</span></div></div>
-          <div class="process-art"><div class="art-topline"><span>${escapeHTML(pr.artTop)}</span><span id="artStatus">${escapeHTML(pr.statuses[0])}</span></div>${processSvg}<div class="art-footer"><span>${escapeHTML(pr.artFooterLeft)}</span><span>${escapeHTML(pr.artFooterRight)}</span></div></div>
-        </div></div></section>
-        <section class="section faq" id="duvidas"><div class="container faq-grid"><div class="section-head reveal"><p class="eyebrow">${escapeHTML(f.eyebrow)}</p><h2>${escapeHTML(f.title)}</h2><p>${escapeHTML(f.description)}</p></div><div class="faq-list reveal">${f.items.map((x,i)=>`<article class="faq-item ${i===0?"open":""}"><button class="faq-question" aria-expanded="${i===0}"><span>${escapeHTML(x.question)}</span><span>+</span></button><div class="faq-answer"><div><p>${escapeHTML(x.answer)}</p></div></div></article>`).join("")}</div></div></section>
-        <section class="contact" id="contato"><div class="container contact-inner"><div class="reveal"><h2>${escapeHTML(c.title)}</h2><p>${escapeHTML(c.description)}</p></div><a class="button reveal" href="${wa(s.whatsapp)}" target="_blank" rel="noopener">${escapeHTML(c.cta)} ↗</a></div></section>
-      </main>
-      <button class="back-top" id="backTop" aria-label="${escapeHTML(d.floating.backTopLabel)}">↑</button>
-      <a class="floating-contact" href="${wa(s.whatsapp)}" target="_blank" rel="noopener" aria-label="${escapeHTML(d.floating.ariaLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.13 0C5.6 0 .28 5.31.28 11.84c0 2.09.55 4.13 1.6 5.93L.18 24l6.38-1.67a11.9 11.9 0 0 0 5.57 1.42h.01c6.53 0 11.85-5.31 11.85-11.84 0-3.17-1.24-6.15-3.47-8.43ZM12.14 21.7h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.83 9.83 0 0 1-1.51-5.2c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.99 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.44-4.43 9.87-9.85 9.87Zm5.42-7.39c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg></a>
-      <footer><div class="container footer-inner"><span>© ${escapeHTML(s.year)} ${escapeHTML(s.company)}. Todos os direitos reservados.</span><a href="${escapeHTML(s.instagramUrl)}" target="_blank" rel="noopener">${escapeHTML(s.instagramLabel)}</a></div></footer>`;
-    initInteractions(d);
-  }
-  function initInteractions(d) {
-    const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const revealItems=document.querySelectorAll(".reveal");
-    if("IntersectionObserver" in window && !reduceMotion){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}}),{threshold:.12});revealItems.forEach(item=>observer.observe(item));}else revealItems.forEach(item=>item.classList.add("visible"));
-    const clamp=(v,min=0,max=1)=>Math.min(max,Math.max(min,v)), smooth=v=>{const t=clamp(v);return t*t*(3-2*t);};
-    const hero=document.querySelector(".hero"),heroLines=[...document.querySelectorAll("#heroDrawing .draw-line")],heroFill=document.querySelector("#heroDrawing .draw-fill"),processSection=document.querySelector(".process-scroll"),processLines=[...document.querySelectorAll("#processDrawing .stage-line")],details=[...document.querySelectorAll(".process-detail")],progressFill=document.querySelector(".progress-fill"),processCount=document.querySelector("#processCount"),artStatus=document.querySelector("#artStatus"),drawingCaption=document.querySelector("#drawingCaption");
-    let ticking=false;
-    const sectionProgress=section=>{const rect=section.getBoundingClientRect(),distance=rect.height-window.innerHeight;return distance<=0?1:clamp(-rect.top/distance);};
-    function updateScenes(){
-      ticking=false;
-      const hp=sectionProgress(hero),heroReveal=smooth(hp/.78);
-      heroLines.forEach((line,i)=>{
-        const part=smooth((heroReveal-i*.055)/.43);
-        line.style.strokeDashoffset=String(1-part);
-        line.style.opacity=String(Math.max(.08,part));
-      });
-      heroFill.style.opacity=String(smooth((hp-.55)/.25)*.85);
-      const heroVisual=document.querySelector(".hero-visual");
-      if(heroVisual && !window.matchMedia("(max-width:680px)").matches){
-        heroVisual.style.transform=`translateY(${(hp-.5)*-22}px) scale(${1+hp*.025})`;
-      }
+  <div id="fail" hidden role="alert">Não foi possível carregar o data.json. Abra o site por um servidor (hospedagem ou Live Server) e mantenha os dois arquivos na mesma pasta.</div>
+  <noscript><p style="padding:24px;font-family:sans-serif">Ative o JavaScript para ver o site da ICONTEC Construtora.</p></noscript>
+  <div class="scroll-progress" aria-hidden="true"><span id="siteProgress"></span></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="topbar">
+    <nav aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="ICONTEC Construtora">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#159b8e" stroke-width="2.6"/><path d="M20 8l9 5v10l-9 5-9-5V13z" fill="none" stroke="#1a8fb0" stroke-width="2.6" stroke-linejoin="round"/><path d="M20 15v8" stroke="#159b8e" stroke-width="2.6" stroke-linecap="round"/></svg><span>ICON<span>TEC</span></span>
+      </a>
+      <div class="nav-links" id="navLinks"></div>
+      <a class="button" id="navCta" href="#contato" target="_blank" rel="noopener">Orçamento</a>
+    </nav>
+  </div>
 
-      const processProgress=sectionProgress(processSection);
-      const scaled=processProgress*d.process.steps.length;
-      const active=Math.min(d.process.steps.length-1,Math.floor(scaled));
-      details.forEach((item,i)=>item.classList.toggle("active",i===active));
-      processCount.textContent=String(active+1).padStart(2,"0");
-      artStatus.textContent=d.process.statuses[active];
-      drawingCaption.textContent=d.process.captions[active];
-      progressFill.style.width=`${processProgress*100}%`;
-      processLines.forEach(line=>{
-        const stage=Number(line.dataset.stage);
-        const amount=smooth(clamp(scaled-stage+.18));
-        line.style.strokeDashoffset=String(1-amount);
-        line.style.opacity=String(amount);
-      });
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-copy-block reveal" id="heroCopy"></div>
+      <div class="hero-visual reveal" aria-label="Ilustração técnica de uma casa sendo construída">
+        <div class="blueprint-grid"></div>
+        <span class="blueprint-tag">ESTUDO • PROJETO • EXECUÇÃO</span>
+        <svg class="house" id="heroDrawing" viewBox="0 0 400 330" role="img" aria-hidden="true">
+          <path class="draw-fill" d="M65 145 200 48l135 97v145H65z"/>
+          <path class="draw-line" pathLength="1" d="M45 148 200 35l155 113"/>
+          <path class="draw-line" pathLength="1" d="M65 145v145h270V145"/>
+          <path class="draw-line" pathLength="1" d="M45 148h310"/>
+          <path class="draw-line" pathLength="1" d="M165 290v-90h70v90"/>
+          <path class="draw-line" pathLength="1" d="M95 174h65v58H95z"/>
+          <path class="draw-line" pathLength="1" d="M240 174h65v58h-65z"/>
+          <path class="draw-line" pathLength="1" d="M127 174v58m-32-29h65m112-29v58m-32-29h65"/>
+          <path class="draw-line" pathLength="1" d="M200 35v-20m-9 0h18"/>
+          <path class="draw-line" pathLength="1" d="M48 310h304m-287-10v20m270-20v20"/>
+          <path class="draw-line" pathLength="1" d="M22 148h23m310 0h23M200 8v7"/>
+          <path class="draw-line" pathLength="1" d="M65 130 65 115h270v15"/>
+        </svg>
+        <span class="visual-label">PLANTA BAIXA → ESTRUTURA → ENTREGA</span>
+        <span class="scroll-caption">ROLE PARA ACOMPANHAR A CONSTRUÇÃO ↓</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="mq" id="mq" aria-hidden="true"></div>
+
+    <section class="section" id="servicos"></section>
+
+    <section class="section why" id="why"></section>
+
+    <section class="section planner" id="planejamento"></section>
+
+    <section class="process-scroll" id="processo">
+      <div class="process-sticky">
+        <div class="container process-layout">
+          <div class="process-content" id="processContent"></div>
+          <div class="process-art">
+            <div class="art-topline"><span>ICONTEC / OBRA EM ANDAMENTO</span><span id="artStatus">01 · ANÁLISE</span></div>
+            <svg id="processDrawing" viewBox="0 0 520 520" role="img" aria-label="Desenho técnico que evolui de acordo com as etapas da obra">
+              <defs><pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#159b8e" stroke-opacity=".12" stroke-width="1"/></pattern></defs>
+              <rect width="520" height="520" fill="url(#smallGrid)"/>
+              <g fill="none" stroke="#178d82" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path class="stage-line" data-stage="0" pathLength="1" d="M55 420H465M85 435H435M105 420v15m310-15v15"/>
+                <path class="stage-line" data-stage="0" pathLength="1" d="M100 385h320M115 385v35m290-35v35"/>
+                <path class="stage-line" data-stage="1" pathLength="1" d="M130 385V205H390V385M105 205 260 105l155 100"/>
+                <path class="stage-line" data-stage="1" pathLength="1" d="M130 205h260M260 105v-28m-12 0h24"/>
+                <path class="stage-line" data-stage="2" pathLength="1" d="M145 385V220h230v165M145 275h230M145 330h230M205 220v165m110-165v165"/>
+                <path class="stage-line" data-stage="2" pathLength="1" d="M130 205 260 120l130 85"/>
+                <path class="stage-line" data-stage="3" pathLength="1" d="M165 240h65v55h-65zM290 240h65v55h-65zM165 325h65v45h-65zM290 325h65v45h-65z"/>
+                <path class="stage-line" data-stage="3" pathLength="1" d="M197 240v55m-32-27h65m92-28v55m-32-27h65M260 385v-100h35v100"/>
+                <path class="stage-line" data-stage="4" pathLength="1" d="M105 205 260 95l155 110M118 196 260 95l142 101"/>
+                <path class="stage-line" data-stage="4" pathLength="1" d="M80 450h360M95 450v-8m330 8v-8M260 95V55m-12 0h24"/>
+              </g>
+              <g fill="none" stroke="#7ba9a2" stroke-width="1.2" stroke-dasharray="4 6" opacity=".45"><path d="M80 205V385M440 205V385M80 190H440M130 405H390"/></g>
+              <g fill="#178d82" font-family="DM Sans,sans-serif" font-size="11" letter-spacing="1.5"><text x="260" y="480" text-anchor="middle" id="drawingCaption">ANÁLISE DO TERRENO</text></g>
+              <circle class="scan-point" cx="260" cy="95" r="5" fill="#159b8e"/>
+            </svg>
+            <div class="art-footer"><span>PROJETO EM EVOLUÇÃO</span><span>SCROLL ↕</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="duvidas"></section>
+    <section class="contact" id="contato"></section>
+  </main>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo">↑</button>
+  <a class="floating-contact" href="#contato" target="_blank" rel="noopener" aria-label="Conversar com a ICONTEC pelo WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.8 11.8 0 0 0 12.13 0C5.6 0 .28 5.31.28 11.84c0 2.09.55 4.13 1.6 5.93L.18 24l6.38-1.67a11.9 11.9 0 0 0 5.57 1.42h.01c6.53 0 11.85-5.31 11.85-11.84 0-3.17-1.24-6.15-3.47-8.43ZM12.14 21.7h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.79.99 1.01-3.69-.23-.38a9.83 9.83 0 0 1-1.51-5.2c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.99 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.44-4.43 9.87-9.85 9.87Zm5.42-7.39c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/></svg>
+  </a>
+  <footer><div class="container footer-inner" id="footerInner"></div></footer>
+
+  <script>
+(function(){
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const wa=(D,t)=>'https://api.whatsapp.com/send?phone='+D.site.whatsapp+(t?'&text='+encodeURIComponent(t):'');
+const head=(h,x)=>`<div class="section-head reveal"><p class="eyebrow">${esc(h.eyebrow)}</p><h2>${esc(h.title)}</h2>${h.text?`<p>${esc(h.text)}</p>`:''}${x||''}</div>`;
+function render(D){
+  const S=D.site,H=D.hero;
+  document.title=S.title;
+  const md=document.querySelector('meta[name=description]');if(md)md.content=S.description;
+  $('#navLinks').innerHTML=D.nav.links.map(l=>`<a href="${l.href}">${esc(l.label)}</a>`).join('');
+  const nc=$('#navCta');nc.innerHTML=esc(D.nav.cta)+' <span aria-hidden="true">↗</span>';nc.href=wa(D);
+  $('.floating-contact').href=wa(D);
+  const words=H.title.split(' ').map(w=>[w,0]).concat(H.highlight.split(' ').map(w=>[w,1]));
+  $('#heroCopy').innerHTML=`<p class="badge"><i></i>${esc(H.badge)}</p><h1 aria-label="${esc(H.title+' '+H.highlight)}">${words.map((w,i)=>`<span class="w${w[1]?' hl':''}" aria-hidden="true" style="--i:${i}"><i>${esc(w[0])}</i></span> `).join('')}</h1><p class="hero-copy">${esc(H.copy)}</p><div class="actions"><a class="button" href="${wa(D)}" target="_blank" rel="noopener">${esc(H.primary)} ↗</a><a class="button outline" href="#servicos">${esc(H.secondary)}</a></div>`;
+  $('.hero-visual').insertAdjacentHTML('beforeend',H.chips.map((c,i)=>`<span class="chip" style="${c.pos};animation-delay:-${i*2}s">${esc(c.label)}</span>`).join(''));
+  const m=D.marquee.map(t=>`<span>${esc(t)}</span><b>◆</b>`).join('').repeat(4);
+  $('#mq').innerHTML='<div>'+m+'</div>';
+  $('#servicos').innerHTML=`<div class="container">${head(D.services)}<div class="services">${D.services.items.map(x=>`<article class="service reveal"><span class="service-number">${esc(x.tag)}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></article>`).join('')}</div></div>`;
+  $('#why').innerHTML=`<div class="container why-grid">${head(D.why)}<div class="why-list">${D.why.items.map(x=>`<article class="why-item reveal"><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></article>`).join('')}</div></div>`;
+  const P=D.planner;
+  $('#planejamento').innerHTML=`<div class="container planner-grid">${head(P,`<p class="planner-tag">${esc(P.tag)}</p>`)}<div class="planner-panel reveal"><p class="eyebrow" style="margin-bottom:4px">${esc(P.panelTitle)}</p>${P.fields.map(f=>`<label for="${f.id}">${esc(f.label)}</label><select id="${f.id}">${f.options.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select>`).join('')}<div class="planner-result" aria-live="polite"><small>${esc(P.resultLabel)}</small><strong id="plannerTitle">${esc(P.fields[0].options[0])}</strong><p id="plannerDescription">${esc(P.resultText)}</p></div><button class="button" id="plannerSend" type="button">${esc(P.send)} ↗</button><p class="planner-note">${esc(P.note)}</p></div></div>`;
+  const R=D.process,n=R.steps.length;
+  $('#processContent').innerHTML=`<div class="section-head"><p class="eyebrow">${esc(R.eyebrow)}</p><h2>${esc(R.title)}</h2><p class="process-intro">${esc(R.intro)}</p></div><div class="process-steps" aria-live="polite">${R.steps.map((x,i)=>`<article class="process-detail${i?'':' active'}"><span class="step-no">ETAPA 0${i+1} / 0${n}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p><div class="deliver"><b>${esc(R.deliverLabel)}</b>${esc(x.deliver)}</div></article>`).join('')}</div><div class="process-progress"><span class="progress-fill"></span></div><div class="process-counter"><span id="processCount">01</span><span>— 0${n}</span></div>`;
+  const F=D.faq;
+  $('#duvidas').innerHTML=`<div class="container faq-grid">${head(F)}<div class="faq-list reveal">${F.items.map((x,i)=>`<article class="faq-item${i?'':' open'}"><button class="faq-question" aria-expanded="${i?'false':'true'}"><span>${esc(x.q)}</span><span>+</span></button><div class="faq-answer"><div><p>${esc(x.a)}</p></div></div></article>`).join('')}</div></div>`;
+  const C=D.contact;
+  $('#contato').innerHTML=`<div class="container contact-inner"><div class="reveal"><p class="eyebrow">${esc(C.eyebrow)}</p><h2>${esc(C.title)}</h2><p>${esc(C.text)}</p></div><a class="button reveal" href="${wa(D)}" target="_blank" rel="noopener">${esc(C.button)} ↗</a></div>`;
+  $('#footerInner').innerHTML=`<span>${esc(S.copyright)}</span><a href="${S.instagram}" target="_blank" rel="noopener">Instagram ${esc(S.instagramHandle)} ↗</a>`;
+  const ld=document.createElement('script');ld.type='application/ld+json';
+  ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'GeneralContractor',name:S.name,description:S.description,telephone:'+'+S.whatsapp,sameAs:[S.instagram]});
+  document.head.appendChild(ld);
+}
+function init(D){
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
     }
-    function requestUpdate(){if(!ticking){ticking=true;requestAnimationFrame(updateScenes);}}
-    if(reduceMotion){
-      heroLines.forEach(line=>{line.style.strokeDashoffset="0";line.style.opacity="1";});
+
+    const clamp = (v, min=0, max=1) => Math.min(max, Math.max(min, v));
+    const smooth = (v) => { const t=clamp(v); return t*t*(3-2*t); };
+    const hero = document.querySelector(".hero");
+    const heroLines = [...document.querySelectorAll("#heroDrawing .draw-line")];
+    const heroFill = document.querySelector("#heroDrawing .draw-fill");
+    const processSection = document.querySelector(".process-scroll");
+    const processLines = [...document.querySelectorAll("#processDrawing .stage-line")];
+    const details = [...document.querySelectorAll(".process-detail")];
+    const progressFill = document.querySelector(".progress-fill");
+    const processCount = document.querySelector("#processCount");
+    const artStatus = document.querySelector("#artStatus");
+    const drawingCaption = document.querySelector("#drawingCaption");
+    const captions = D.process.steps.map(x=>x.caption);
+    const statuses = D.process.steps.map(x=>x.status);
+    let ticking = false;
+
+    function progress(section) {
+      const rect = section.getBoundingClientRect();
+      const distance = rect.height - window.innerHeight;
+      return distance <= 0 ? 1 : clamp(-rect.top / distance);
+    }
+    function updateScenes() {
+      ticking = false;
+      const hp = progress(hero);
+      const reveal = smooth(hp / .78);
+      heroLines.forEach((line,i) => {
+        const part = smooth((reveal - i*.055) / .43);
+        line.style.strokeDashoffset = String(1-part);
+      });
+      heroFill.style.opacity = String(smooth((hp-.55)/.25)*.85);
+      document.querySelector(".hero-visual").style.transform =
+        `translateY(${(hp-.5)*-22}px) scale(${1+hp*.025})`;
+
+      if (window.matchMedia("(max-width: 680px)").matches) return;
+      const p = progress(processSection);
+      const scaled = p*5;
+      const active = Math.min(4,Math.floor(scaled));
+      details.forEach((item,i) => item.classList.toggle("active",i===active));
+      processCount.textContent = String(active+1).padStart(2,"0");
+      artStatus.textContent = statuses[active];
+      drawingCaption.textContent = captions[active];
+      progressFill.style.width = `${p*100}%`;
+      processLines.forEach(line => {
+        const stage = Number(line.dataset.stage);
+        const amount = smooth(clamp(scaled-stage+.18));
+        line.style.strokeDashoffset = String(1-amount);
+        line.style.opacity = String(amount);
+      });
+      document.querySelector("#processDrawing").style.transform =
+        `translateY(${((scaled-active)-.5)*-7}px)`;
+    }
+    function requestUpdate() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateScenes);
+      }
+    }
+    if (reduceMotion) {
+      heroLines.forEach(line => { line.style.strokeDashoffset="0"; line.style.opacity="1"; });
       heroFill.style.opacity=".85";
-      processLines.forEach(line=>{line.style.strokeDashoffset="0";line.style.opacity="1";});
-    }else{
+      processLines.forEach(line => { line.style.strokeDashoffset="0"; line.style.opacity="1"; });
+    } else {
       window.addEventListener("scroll",requestUpdate,{passive:true});
-      window.addEventListener("resize",requestUpdate,{passive:true});
+      window.addEventListener("resize",requestUpdate);
       requestUpdate();
     }
-    const siteProgress=document.querySelector("#siteProgress"),backTop=document.querySelector("#backTop"),nav=document.querySelector("nav"),navLinks=[...document.querySelectorAll(".nav-links a")],sectionTargets=["servicos","processo","planejamento","contato","duvidas"].map(id=>document.getElementById(id)).filter(Boolean);
-    const mobileMenuToggle=document.getElementById("mobileMenuToggle"),mobileNav=document.querySelector(".nav-links");
-    mobileMenuToggle.addEventListener("click",()=>{
-      const opened=mobileNav.classList.toggle("open");
-      mobileMenuToggle.setAttribute("aria-expanded",String(opened));
-      mobileMenuToggle.setAttribute("aria-label",opened?"Fechar menu":"Abrir menu");
-      mobileMenuToggle.textContent=opened?"×":"☰";
+
+    // Barra de progresso, navegação contextual e botão de retorno ao topo.
+    const siteProgress = document.querySelector("#siteProgress");
+    const backTop = document.querySelector("#backTop");
+    const nav = document.querySelector("nav");
+    const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const sectionTargets = ["servicos","processo","planejamento","contato"].map(id => document.getElementById(id)).filter(Boolean);
+    function updateChrome() {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      siteProgress.style.width = `${maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0}%`;
+      nav.classList.toggle("scrolled", window.scrollY > 25);
+      backTop.classList.toggle("show", window.scrollY > 600);
+      let current = "";
+      sectionTargets.forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight * .42) current = section.id;
+      });
+      navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === `#${current}`));
+    }
+    let chromeTick=0;window.addEventListener("scroll",()=>{if(!chromeTick)chromeTick=requestAnimationFrame(()=>{chromeTick=0;updateChrome()})},{passive:true});
+    window.addEventListener("resize", updateChrome);
+    updateChrome();
+    backTop.addEventListener("click", () => window.scrollTo({ top:0, behavior: reduceMotion ? "auto" : "smooth" }));
+
+    // Configurador: transforma as escolhas em uma mensagem pronta, sem inventar valores.
+    const projectType = document.querySelector("#projectType");
+    const projectSize = document.querySelector("#projectSize");
+    const projectStage = document.querySelector("#projectStage");
+    const plannerTitle = document.querySelector("#plannerTitle");
+    const plannerDescription = document.querySelector("#plannerDescription");
+    function updatePlanner() {
+      plannerTitle.textContent = projectType.value;
+      plannerDescription.textContent = `${projectSize.value} · ${projectStage.value}. Vamos conversar sobre os próximos passos.`;
+    }
+    [projectType, projectSize, projectStage].forEach(control => control.addEventListener("change", updatePlanner));
+    document.querySelector("#plannerSend").addEventListener("click", () => {
+      const message = [
+        D.planner.msg[0],
+        `Objetivo: ${projectType.value}.`,
+        `Porte: ${projectSize.value}.`,
+        `Etapa atual: ${projectStage.value}.`,
+        D.planner.msg[1]
+      ].join("\n");
+      window.open(`https://api.whatsapp.com/send?phone=${D.site.whatsapp}&text=${encodeURIComponent(message)}`, "_blank", "noopener");
     });
-    navLinks.forEach(link=>link.addEventListener("click",()=>{
-      mobileNav.classList.remove("open");
-      mobileMenuToggle.setAttribute("aria-expanded","false");
-      mobileMenuToggle.setAttribute("aria-label","Abrir menu");
-      mobileMenuToggle.textContent="☰";
-    }));
-    function updateChrome(){const max=document.documentElement.scrollHeight-window.innerHeight;siteProgress.style.width=`${max>0?window.scrollY/max*100:0}%`;nav.classList.toggle("scrolled",window.scrollY>25);backTop.classList.toggle("show",window.scrollY>600);let current="";sectionTargets.forEach(section=>{if(section.getBoundingClientRect().top<window.innerHeight*.42)current=section.id;});navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")===`#${current}`));}
-    window.addEventListener("scroll",updateChrome,{passive:true});window.addEventListener("resize",updateChrome);updateChrome();backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"}));
-    const fields=d.planner.fields.map(field=>document.getElementById(field.id)),title=document.getElementById("plannerTitle"),description=document.getElementById("plannerDescription");
-    function updatePlanner(){title.textContent=fields[0].value;description.textContent=`${fields[1].value} · ${fields[2].value}. ${d.planner.resultDescription}`;}
-    fields.forEach(field=>field.addEventListener("change",updatePlanner));
-    document.getElementById("plannerSend").addEventListener("click",()=>{const message=[d.planner.messageIntro,`Objetivo: ${fields[0].value}.`,`Porte: ${fields[1].value}.`,`Etapa atual: ${fields[2].value}.`,d.planner.messageClosing].join("\n");window.open(`${wa(d.site.whatsapp)}&text=${encodeURIComponent(message)}`,"_blank","noopener");});
-    document.querySelectorAll(".faq-question").forEach(button=>button.addEventListener("click",()=>{const item=button.closest(".faq-item"),open=!item.classList.contains("open");document.querySelectorAll(".faq-item").forEach(other=>{other.classList.remove("open");other.querySelector(".faq-question").setAttribute("aria-expanded","false");});if(open){item.classList.add("open");button.setAttribute("aria-expanded","true");}}));
-    if(window.matchMedia("(hover:hover) and (pointer:fine)").matches&&!reduceMotion){document.querySelectorAll(".service").forEach(card=>{card.addEventListener("pointermove",event=>{const rect=card.getBoundingClientRect(),x=(event.clientX-rect.left)/rect.width-.5,y=(event.clientY-rect.top)/rect.height-.5;card.style.transform=`perspective(800px) rotateX(${y*-3}deg) rotateY(${x*3}deg) translateY(-5px)`;});card.addEventListener("pointerleave",()=>card.style.transform="");});const glow=document.querySelector("#cursorGlow");window.addEventListener("pointermove",event=>{glow.style.left=`${event.clientX}px`;glow.style.top=`${event.clientY}px`;},{passive:true});}
-  }
-  fetch("./data.json").then(response=>{if(!response.ok)throw new Error("Não foi possível carregar data.json");return response.json();}).then(renderSite).catch(error=>{document.getElementById("app").innerHTML=`<main class="container" style="padding:140px 0"><h1>Não foi possível carregar o conteúdo.</h1><p>Verifique se o arquivo <strong>data.json</strong> está na mesma pasta que o index.html e se o site está sendo servido por um servidor local ou hospedagem.</p><p>${escapeHTML(error.message)}</p></main>`;});
-  </script>
+
+    // FAQ em acordeão acessível.
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".faq-item");
+        const willOpen = !item.classList.contains("open");
+        document.querySelectorAll(".faq-item").forEach(other => {
+          other.classList.remove("open");
+          other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+        });
+        if (willOpen) {
+          item.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    // Inclinação muito sutil nos cards e luz ambiente que acompanha o ponteiro.
+    if (window.matchMedia("(hover:hover) and (pointer:fine)").matches && !reduceMotion) {
+      document.querySelectorAll(".service").forEach(card => {
+        card.addEventListener("pointermove", event => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - .5;
+          const y = (event.clientY - rect.top) / rect.height - .5;
+          card.style.transform = `perspective(800px) rotateX(${y * -3}deg) rotateY(${x * 3}deg) translateY(-5px)`;
+        });
+        card.addEventListener("pointerleave", () => card.style.transform = "");
+      });
+      const glow = document.querySelector("#cursorGlow");
+      window.addEventListener("pointermove", event => {
+        glow.style.transform = `translate3d(${event.clientX}px,${event.clientY}px,0) translate(-50%,-50%)`;
+      }, { passive:true });
+    }
+
+  
+(function(){
+  var ic=[
+   '<path d="M6 40L40 6l18 18L24 58zM16 30l6 6M24 22l4 4M32 14l6 6"/>',
+   '<rect x="12" y="6" width="40" height="52" rx="6"/><path d="M22 20h20M22 32h8M34 32h8M22 44h8M34 44h8"/>',
+   '<path d="M6 54h52M12 54V28l20-16 20 16v26M26 54V38h12v16M46 12V6h6v10"/>',
+   '<path d="M10 40c0-14 10-26 22-26s22 12 22 26zM6 40h52v8H6zM32 14V8M24 16l-3-6M40 16l3-6"/>'];
+  document.querySelectorAll(".service").forEach(function(s,i){
+    s.insertAdjacentHTML("afterbegin",'<svg class="ico" viewBox="0 0 64 64" aria-hidden="true">'+ic[i]+'</svg>');
+    if(window.matchMedia("(hover:hover)").matches)s.addEventListener("pointermove",function(e){var r=s.getBoundingClientRect();s.style.setProperty("--mx",(e.clientX-r.left)+"px");s.style.setProperty("--my",(e.clientY-r.top)+"px")});
+  });
+  var D={hat:'<path d="M8 44c0-14 10-26 24-26s24 12 24 26zM4 44h56v6H4zM32 18V10M24 20l-3-7M40 20l3-7"/>',
+   ruler:'<path d="M6 40L40 6l18 18L24 58zM16 30l6 6M24 22l4 4M32 14l6 6"/>',
+   tri:'<path d="M8 56V8l48 48zM8 40h8M8 28h6M8 16h8M24 56v-8M36 56v-6"/>',
+   comp:'<circle cx="32" cy="32" r="22"/><path d="M32 10v44M10 32h44M32 32l12-12"/>'};
+  var cfg=[[".hero",[["hat","left:1.5%;top:26%;width:62px",.22],["ruler","right:2%;top:62%;width:78px",-.18],["tri","left:44%;top:86%;width:70px",.12]]],
+   [".why",[["comp","right:7%;top:12%;width:90px",.2],["hat","left:3%;bottom:10%;width:70px",-.15]]],
+   [".contact",[["ruler","left:42%;top:12%;width:80px",.2],["tri","right:16%;bottom:14%;width:84px",-.16]]]];
+  var all=[];
+  cfg.forEach(function(c){var h=document.querySelector(c[0]);if(!h)return;c[1].forEach(function(d){
+    var e=document.createElement("div");e.className="doodle";e.setAttribute("aria-hidden","true");e.style.cssText=d[1];e.style.aspectRatio="1";
+    e.innerHTML='<svg viewBox="0 0 64 64">'+D[d[0]]+'</svg>';h.appendChild(e);all.push([e,h,d[2]])})});
+  function par(){all.forEach(function(a){var r=a[1].getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+    a[0].style.transform="translateY("+(-(r.top+r.height/2-innerHeight/2)*a[2]*.4)+"px) rotate("+(r.top*a[2]*.12)+"deg)"})}
+  if(!reduceMotion){var t=0;addEventListener("scroll",function(){if(!t)t=requestAnimationFrame(function(){t=0;par()})},{passive:true});par();
+    if(matchMedia("(hover:hover) and (pointer:fine)").matches)document.querySelectorAll(".button").forEach(function(b){
+      b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+(e.clientX-r.left-r.width/2)*.16+"px,"+(e.clientY-r.top-r.height/2)*.26+"px)"});
+      b.addEventListener("pointerleave",function(){b.style.transform=""})})}
+})();
+
+  let ly=0;const tb=document.querySelector('.topbar');
+  addEventListener('scroll',()=>{const y=scrollY;tb.style.transform=(y>ly&&y>520)?'translateY(-140%)':'';ly=y},{passive:true});
+}
+fetch('data.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(D=>{render(D);init(D)}).catch(()=>{$('#fail').hidden=false});
+})();
+</script>
 </body>
 </html>
