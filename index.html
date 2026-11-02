@@ -404,6 +404,7 @@ main{overflow-x:clip}
   .faq-question{padding:18px 0}
   footer{padding-bottom:calc(25px + env(safe-area-inset-bottom))}
 }
+.planner-result+.planner-note{margin-top:16px}
   </style>
 </head>
 <body>
@@ -517,7 +518,7 @@ function render(D){
   $('#servicos').innerHTML=`<div class="container">${head(D.services)}<div class="services">${D.services.items.map(x=>`<article class="service reveal"><span class="service-number">${esc(x.tag)}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></article>`).join('')}</div></div>`;
   $('#why').innerHTML=`<div class="container why-grid">${head(D.why)}<div class="why-list">${D.why.items.map(x=>`<article class="why-item reveal"><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></article>`).join('')}</div></div>`;
   const P=D.planner;
-  $('#planejamento').innerHTML=`<div class="container planner-grid">${head(P,`<p class="planner-tag">${esc(P.tag)}</p>`)}<div class="planner-panel reveal"><p class="eyebrow" style="margin-bottom:4px">${esc(P.panelTitle)}</p>${P.fields.map(f=>`<label for="${f.id}">${esc(f.label)}</label><select id="${f.id}">${f.options.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select>`).join('')}<div class="planner-result" aria-live="polite"><small>${esc(P.resultLabel)}</small><strong id="plannerTitle">${esc(P.fields[0].options[0])}</strong><p id="plannerDescription">${esc(P.resultText)}</p></div><button class="button" id="plannerSend" type="button">${esc(P.send)} ↗</button><p class="planner-note">${esc(P.note)}</p></div></div>`;
+  $('#planejamento').innerHTML=`<div class="container planner-grid">${head(P,`<p class="planner-tag">${esc(P.tag)}</p>`)}<div class="planner-panel reveal"><p class="eyebrow" style="margin-bottom:4px">${esc(P.panelTitle)}</p>${P.fields.map(f=>`<label for="${f.id}">${esc(f.label)}</label><select id="${f.id}">${f.options.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select>`).join('')}<div class="planner-result" aria-live="polite"><small>${esc(P.resultLabel)}</small><strong id="plannerTitle">${esc(P.fields[0].options[0])}</strong><p id="plannerDescription">${esc(P.resultText)}</p></div><p class="planner-note">${esc(P.note)}</p></div></div>`;
   const R=D.process,n=R.steps.length;
   $('#processContent').innerHTML=`<div class="section-head"><p class="eyebrow">${esc(R.eyebrow)}</p><h2>${esc(R.title)}</h2><p class="process-intro">${esc(R.intro)}</p></div><div class="process-steps" aria-live="polite">${R.steps.map((x,i)=>`<article class="process-detail${i?'':' active'}"><span class="step-no">ETAPA 0${i+1} / 0${n}</span><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p><div class="deliver"><b>${esc(R.deliverLabel)}</b>${esc(x.deliver)}</div></article>`).join('')}</div><div class="process-progress"><span class="progress-fill"></span></div><div class="process-counter"><span id="processCount">01</span><span>— 0${n}</span></div>`;
   const F=D.faq;
@@ -652,7 +653,7 @@ function init(D){
     updateChrome();
     backTop.addEventListener("click", () => window.scrollTo({ top:0, behavior: reduceMotion ? "auto" : "smooth" }));
 
-    // Configurador: transforma as escolhas em uma mensagem pronta, sem inventar valores.
+    // Configurador: mostra o resumo das escolhas, sem inventar valores.
     const projectType = document.querySelector("#projectType");
     const projectSize = document.querySelector("#projectSize");
     const projectStage = document.querySelector("#projectStage");
@@ -663,17 +664,7 @@ function init(D){
       plannerDescription.textContent = `${projectSize.value} · ${projectStage.value}. Vamos conversar sobre os próximos passos.`;
     }
     [projectType, projectSize, projectStage].forEach(control => control.addEventListener("change", updatePlanner));
-    document.querySelector("#plannerSend").addEventListener("click", () => {
-      const message = [
-        D.planner.msg[0],
-        `Objetivo: ${projectType.value}.`,
-        `Porte: ${projectSize.value}.`,
-        `Etapa atual: ${projectStage.value}.`,
-        D.planner.msg[1]
-      ].join("\n");
-      window.open(`https://api.whatsapp.com/send?phone=${D.site.whatsapp}&text=${encodeURIComponent(message)}`, "_blank", "noopener");
-    });
-
+    
     // FAQ em acordeão acessível.
     document.querySelectorAll(".faq-question").forEach(button => {
       button.addEventListener("click", () => {
